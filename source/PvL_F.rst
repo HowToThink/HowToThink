@@ -42,7 +42,7 @@ To fit the data to the model we run the following code:
         g = Parameter()
         t_model = sqrt(2 * h / g)
 
-        fit = Fit(y_model, h_data, t_data)
+        fit = Fit(t_model, h_data, t_data)
         fit_result = fit.execute()
         print(fit_result)
 
@@ -114,7 +114,7 @@ y     t     n     :math:`\sigma_t`
 50    3.3   30    0.037
 ===== ===== ===== =====
 
-The values of :math:`\sigma_t` have been calculated by using the above formula. Let's fit to this new data set using `symfit`:
+The values of :math:`\sigma_t` have been calculated by using the above formula. Let's fit to this new data set using `symfit`. Notice that there are some small differences to the code:
 
     .. sourcecode:: python3
 
@@ -129,16 +129,22 @@ The values of :math:`\sigma_t` have been calculated by using the above formula. 
 
         # We now define our model
         h = Variable()
+        t = Variable()
         g = Parameter()
-        t_model = sqrt(2 * h / g)
+        t_model = {t: sqrt(2 * h / g)}
 
-        fit = Fit(t_model, y_data, t_data, sigma=sigma_t)
+        fit = Fit(t_model, h=h_data, t=t_data, sigma_t=sigma_t)
         fit_result = fit.execute()
         print(fit_result)
 
-Including these uncertainties in the fit yields :math:`g = 9.10 \pm 2`. This is a very large uncertainty, and the accepted value of :math:`g = 9.81` is well within the uncertainty in this data. The textbooks are save.
+    .. note:: Named Models
 
-This example shows the importance of propagating your errors consistently.
+        Looking at the definition of `t_model`, we see it is now a dict. This has been done so we can tell `symfit` which of our variables are uncertain by the name of the variable, in this case `t` has an uncertainty `sigma_t`.
+
+
+Including these uncertainties in the fit yields :math:`g = 9.10 \pm 0.16`. The accepted value of :math:`g = 9.81` is well outside the uncertainty in this data. Therefore the textbooks must be rewriten!
+
+This example shows the importance of propagating your errors consistently. (And of the importance of performing the actual measurement as the author of a chapter on error propagation so you don't end up claiming the textbooks have to rewritten.)
 
 More on symfit
 --------------
