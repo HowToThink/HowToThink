@@ -1,3 +1,6 @@
+# Original
+How to think like a computer scientist by Peter Wentworth, Jeffrey Elkner, Allen B. Downey, and Chris Meyers; as found on https://code.launchpad.net/~thinkcspy-rle-team/thinkcspy/thinkcspy3-rle
+
 # Why this adaptation
 
 For a very practical cource in programming, we found that the original contained a lot of sections not needed by our students to solve everyday scientific problems.
