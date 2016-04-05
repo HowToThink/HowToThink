@@ -23,6 +23,7 @@ help:
 	@echo "  htmlhelp  to make HTML files and a HTML help project"
 	@echo "  qthelp    to make HTML files and a qthelp project"
 	@echo "  latex     to make LaTeX files, you can set PAPER=a4 or PAPER=letter"
+	@echo "  pdf       to make LaTeX files and compile them to PDF"
 	@echo "  changes   to make an overview of all changed/added/deprecated items"
 	@echo "  linkcheck to check all external links for integrity"
 	@echo "  doctest   to run all doctests embedded in the documentation (if enabled)"
@@ -76,6 +77,10 @@ latex:
 	@echo "Build finished; the LaTeX files are in build/latex."
 	@echo "Run \`make all-pdf' or \`make all-ps' in that directory to" \
 	      "run these through (pdf)latex."
+
+pdf: latex
+	cd build/latex; make all-pdf
+	@echo "Build finished; the PDF output is build/latex/thinkcspy3.pdf."
 
 changes:
 	$(SPHINXBUILD) -b changes $(ALLSPHINXOPTS) build/changes
