@@ -30,6 +30,8 @@ is `p.wentworth@ru.ac.za <mailto:p.wentworth@ru.ac.za>`__
 . Substantial changes made due to your suggestions will add you to the next
 version of the contributor list (unless you ask to be omitted). Thank you!
 
+This version of the book is available on [github](https://github.com/tBuLi/HowToThink) at <https://github.com/tBuLi/HowToThink>. There you are welcome to report issues and suggest changes.
+
 
 Second Edition
 ~~~~~~~~~~~~~~
