@@ -1302,11 +1302,11 @@ This Python snippet captures that algorithm:
                 n = n * 3 + 1
         print(n, end=".\n")     
 
-Notice first that the print function on line 6 has an extra argument ``end=", "``.  This 
+Notice first that the print function on line 4 has an extra argument ``end=", "``.  This 
 tells the ``print`` function to follow the printed string with whatever the programmer
 chooses (in this case, a comma followed by a space), instead of ending the line. So
 each time something is printed in the loop, it is printed on the same output line, with
-the numbers separated by commas.  The call to ``print(n, end=".\n")`` at line 11 after the loop terminates
+the numbers separated by commas.  The call to ``print(n, end=".\n")`` at line 9 after the loop terminates
 will then print the final value of ``n`` followed by a period and a newline character. 
 (You'll cover the ``\n`` (newline character) later).             
                 
