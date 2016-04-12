@@ -736,7 +736,7 @@ does nothing except act as a placeholder.
         if True:          # This is always True,
             pass          #   so this is always executed, but it does nothing
         else:
-            pass 	  # And this is never executed
+            pass       # And this is never executed
 
 
 .. index:: alternative execution, branch, wrapping code in a function
@@ -989,8 +989,8 @@ To improve readability, there is this fourth version:
     .. sourcecode:: python3
         :linenos:
         
-	sword_check = sword_charge >= 0.90
-	shield_check = shield_energy >= 100
+    sword_check = sword_charge >= 0.90
+    shield_check = shield_energy >= 100
 
         if sword_check and shield_check:
             print("The dragon crumples in a heap. You rescue the gorgeous princess!")   
@@ -1202,15 +1202,15 @@ Here is a fragment of code that demonstrates the use of the ``while`` statement:
 
 
     .. sourcecode:: python3
-	:linenos:
+    :linenos:
        
         while <CONDITION>:
-	    <STATEMENT>
+        <STATEMENT>
 
     .. sourcecode:: python3
         :linenos:
         
-	n = 6
+    n = 6
 
         current_sum  = 0
         i = 1
@@ -1435,7 +1435,7 @@ integer:
     .. sourcecode:: python3
         :linenos:
 
-	n = 3029
+    n = 3029
         count = 0
         while n != 0:
             count = count + 1
@@ -1456,7 +1456,7 @@ before incrementing the counter will do the trick:
     .. sourcecode:: python3
         :linenos:
         
-	n = 2574301453
+    n = 2574301453
         count = 0
         while n > 0:
             digit = n % 10
@@ -1986,7 +1986,7 @@ This stopping condition can be coded like this:
     .. sourcecode:: python3
         :linenos:
 
-	threshold = 0.001
+    threshold = 0.001
         if abs(a-b) < threshold:  # Make this smaller for better accuracy
               break   
           
@@ -1997,14 +1997,14 @@ This problem is also a good example of when a middle-exit loop is appropriate:
     .. sourcecode:: python3
         :linenos:
         
-	n = 8
-	threshold = 0.001
+    n = 8
+    threshold = 0.001
         approximation = n/2     # Start with some or other guess at the answer
         while True:
             better = (approximation + n/approximation)/2
             if abs(approximation - better) < threshold:
                 print(better)
-		break
+        break
             approximation = better
         
 See if you can improve the approximations by changing the stopping condition.  Also,
@@ -2075,9 +2075,9 @@ This is a common mistake:
        for number in numbers:
           if number % 2 == 1:
               print(True)
-	      break
+              break
           else:
-	      print(False)
+              print(False)
               break
               
 Can we spot two problems here?  As soon as we execute a ``break``, we'll leave the loop.  
@@ -2095,12 +2095,16 @@ outside the loop.  Here is a corrected version:
                print(True)
                break
        else:
-	   print(False)
+           print(False)
 
-We'll see This "eureka", or "short-circuit" style of returning from a function as 
-soon as we are certain what the outcome will be again later. Note that this uses a ``for ... else`` construct.
-The ``else`` clause is executed when a loop has looped without encountering any break statements. 
-This is ideal for our case here. 
+We'll see This "eureka", or "short-circuit" style of breaking from a loop as 
+soon as we are certain what the outcome will be again later.
+
+.. admonition:: Note that this uses a ``for ... else`` construct.
+
+    The ``else`` clause is executed when a loop has looped without encountering any break statements. 
+    This is ideal for our case here. Also note that the ``else`` is not, in this case,
+    related to the ``if`` statement that occurs inside the loop.
 
 It is preferred over this one, which also works correctly:
 
@@ -2172,9 +2176,9 @@ Even shorter:
 
 Exercise time: 
 
-* How would we adapt this to make another function which returns ``True`` if *all* the numbers are odd?  
+* How would we adapt this to print ``True`` if *all* the numbers are odd?  
   Can you still use a short-circuit style?
-* How would we adapt it to return ``True`` if at least three of the numbers are odd?  Short-circuit the traversal
+* How would we adapt it to print ``True`` if at least three of the numbers are odd?  Short-circuit the traversal
   when the third odd number is found --- don't traverse the whole list unless we have to.
 
 Looping and lists
