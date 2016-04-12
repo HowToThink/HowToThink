@@ -11,7 +11,7 @@
 Program Flow
 ============
 
- 
+
 Hello, little turtles!
 ######################
 
@@ -1188,7 +1188,7 @@ to update the running total by adding the next number to it.
             """ Sum all the numbers in the list numbers, and return the total. """
             running_total = 0
             for number in numbers:
-                running_total = running_total + numbers
+                running_total = running_total + number
             return running_total
 
         
