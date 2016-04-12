@@ -59,7 +59,7 @@ This has nicely squared the array element-wise.
     ..  note::
         Those in the know might be a bit surprised by this. 
         After all, if ``a`` is a vector, shouldn't ``a**2`` be the dot product of the two vectors, :math:`\vec{a} \cdot \vec{a}`?
-        Well, ``numpy`` arrays are not, strictly speaking, vectors in the algebraic sense. Arithmetic operations between arrays 
+        Well, ``numpy`` arrays are not vectors in the algebraic sense. Arithmetic operations between arrays 
         are performed element-wise, not on the arrays as a whole.
         
         To tell ``numpy`` we want the dot product we simply use the ``np.dot`` function: 
@@ -228,7 +228,7 @@ according to the previous rule, only dimensions of size 1 can stretch. This mean
         >>> c * b
         ValueError: operands could not be broadcast together with shapes (2,3) (2,)
 
-What happens here is that Numpy again adds a dimension to ``b``, making it of shape (1, 2). The sizes of the last dimensions of ``b`` and ``c`` (2 and 3,
+What happens here is that Numpy, again, adds a dimension to ``b``, making it of shape (1, 2). The sizes of the last dimensions of ``b`` and ``c`` (2 and 3,
 respectively) are then compared and found to differ. Since none of these dimensions is of size 1 (therefore, unstretchable) Numpy gives up and produces an
 error.
 

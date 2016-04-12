@@ -2083,9 +2083,8 @@ This is a common mistake:
 Can we spot two problems here?  As soon as we execute a ``break``, we'll leave the loop.  
 So the logic of saying "If I find an odd number I can return ``True``" is fine.  However, we cannot
 return ``False`` after only looking at one item --- we can only return ``False`` if we've been through
-all the items, and none of them are odd.  So lines 9 and 11 should not be there, and line 10 has to be
-outside the loop.  To find the second problem above, consider what happens if you call this code
-with an argument that is an empty list.  Here is a corrected version:
+all the items, and none of them are odd.  So line 10 should not be there, and lines 8 and 9 have to be
+outside the loop.  Here is a corrected version:
 
     .. sourcecode:: python3
        :linenos:
@@ -2122,15 +2121,16 @@ It is preferred over this one, which also works correctly:
 The performance disadvantage of this one is that it traverses the whole list, 
 even if it knows the outcome very early on.  
 
-.. admonition:: Tip: Think about the return conditions of the function
+.. admonition:: Tip: Think about the return conditions of the loop
 
     Do I need to look at all elements in all cases?  Can I shortcut and take an
     early exit?  Under what conditions?  When will I have to examine all the items
     in the list?
 
-The code in lines 8-11 can also be tightened up.  The expression ``count > 0``
-evaluates to a Boolean value, either ``True`` or ``False``.  The value can be used 
-directly in the ``print`` statement.   So we could cut out that code and simply 
+The code in lines 6-9 can also be tightened up.  The expression ``count > 0``
+itself represents a Boolean value, either ``True`` or ``False`` (we can say it 'evaluates'
+to either ``True`` or ``False``).  That ``True``/``False`` value can be used 
+directly in the ``print`` statement.  So we could cut out that code and simply 
 have the following:
 
     .. sourcecode:: python3
