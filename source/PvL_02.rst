@@ -616,8 +616,9 @@ we know how to print values. Let's put these together in a small four-step progr
 asks the user to input a value for the radius of a circle, and then 
 computes the area of the circle from the formula  
 
-    .. image:: illustrations/circle_area.png
-       :alt: formula for area of a circle
+    .. math::
+       
+        \text{Area} = \pi R^2
 
 Firstly, we'll do the four steps one at a time: 
 
