@@ -25,7 +25,7 @@ illustrated by Dario Mitchell
 * `Appendix B <PvL_B.html>`__ *Datatypes*
 * `Appendix C <PvL_C.html>`__ *Recursion*
 * `Appendix D <PvL_D.html>`__ *Object Oriented Programming*
-* `Appendix E <PvL_E.html>`__ *Exception*
+* `Appendix E <PvL_E.html>`__ *Exceptions*
 * `Appendix F <PvL_F.html>`__ *Fitting and Scientific Data Handling*
 * `Appendix G <PvL_G.html>`__ *PyGame*
 * `GNU Free Document License <fdl-1.3.html>`__ 
