@@ -946,8 +946,10 @@ helpful when dealing with complicated Boolean expressions are:
 
       .. sourcecode:: pycon
     
-          not (x and y)  ==  (not x) or (not y) 
-          not (x or y)   ==  (not x) and (not y)
+          (not (x and y))  ==  ((not x) or (not y))
+          (not (x or y))   ==  ((not x) and (not y))
+
+.. equals comparison has precedence over all boolean operators.
           
 For example, suppose we can slay the dragon only if our magic 
 lightsabre sword is charged to 90% or higher, 
