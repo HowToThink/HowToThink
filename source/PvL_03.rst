@@ -1988,9 +1988,9 @@ This stopping condition can be coded like this:
     .. sourcecode:: python3
         :linenos:
 
-    threshold = 0.001
-        if abs(a-b) < threshold:  # Make this smaller for better accuracy
-              break   
+        threshold = 0.001
+            if abs(a-b) < threshold:  # Make this smaller for better accuracy
+                  break   
           
 Notice that we take the absolute value of the difference between ``a`` and ``b``! 
         
@@ -1999,15 +1999,15 @@ This problem is also a good example of when a middle-exit loop is appropriate:
     .. sourcecode:: python3
         :linenos:
         
-    n = 8
-    threshold = 0.001
-        approximation = n/2     # Start with some or other guess at the answer
-        while True:
-            better = (approximation + n/approximation)/2
-            if abs(approximation - better) < threshold:
-                print(better)
-        break
-            approximation = better
+        n = 8
+        threshold = 0.001
+            approximation = n/2     # Start with some or other guess at the answer
+            while True:
+                better = (approximation + n/approximation)/2
+                if abs(approximation - better) < threshold:
+                    print(better)
+                    break
+                approximation = better
         
 See if you can improve the approximations by changing the stopping condition.  Also,
 step through the algorithm (perhaps by hand, using your calculator) to see how many 
