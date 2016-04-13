@@ -1852,7 +1852,7 @@ Now we print the names of those celebrities born before 1980:
     .. sourcecode:: python3
         :linenos:
         
-        for (name, year) in celebs:
+        for name, year in celebs:
            if year < 1980:
                 print(name)
 
@@ -1892,7 +1892,7 @@ out each student name, and the number of subjects they are enrolled for:
         :linenos:
 
         # Print all students with a count of their courses.
-        for (name, subjects) in students:
+        for name, subjects in students:
             print(name, "takes", len(subjects), "courses")
 
         
@@ -1914,7 +1914,7 @@ and for each student we need a second loop that tests each of the subjects in tu
         
         # Count how many students are taking CompSci
         counter = 0
-        for (name, subjects) in students:
+        for name, subjects in students:
             for s in subjects:                 # A nested loop!
                 if s == "CompSci":
                    counter += 1
@@ -1931,7 +1931,7 @@ A more concise of doing this would be the following:
         :linenos:
         
         counter = 0
-        for (name, subjects) in students:
+        for name, subjects in students:
             if "CompSci" in subjects:
                 counter += 1
 

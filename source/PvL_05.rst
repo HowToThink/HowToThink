@@ -1710,7 +1710,7 @@ in the section :ref:`nested_data`:
                 
         # Count how many students are taking CompSci
         counter = 0
-        for (name, subjects) in students:
+        for name, subjects in students:
             if "CompSci" in subjects:            
                    counter += 1
                    
