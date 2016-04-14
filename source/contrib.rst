@@ -1,5 +1,27 @@
-Contributor List
-================
+Contributions
+=============
+
+This version is adapted the third edition of the book "How to Think Like
+a Computer Scientist" by Peter Wentworth, Jeffrey Elkner, Allen B. Downey, and
+Chris Meyers; as found on
+<https://code.launchpad.net/~thinkcspy-rle-team/thinkcspy/thinkcspy3-rle>.
+
+This book is used for the course "Programming for Life Scientists" as taught at
+the University of Groningen (RuG). As such, the original book was adapted to
+specifically suit this course. The main point here was to change the goal of
+the book from "how to think like a computer scientist" to "how to think as
+a scientist with a computer". In other words, the emphasis has been put on
+learning how to use a computer (and Python) to solve everyday scientific
+problems.
+
+This version of the book is available on [github](https://github.com/tBuLi/HowToThink) at <https://github.com/tBuLi/HowToThink>. There you are welcome to report issues and suggest changes.
+
+Original contributor List
+-------------------------
+
+.. note::
+
+    This is the contributor list from the original book.
 
 To paraphrase the philosophy of the Free Software Foundation, this book is free
 like free speech, but not necessarily free like free pizza. It came about
@@ -30,7 +52,6 @@ is `p.wentworth@ru.ac.za <mailto:p.wentworth@ru.ac.za>`__
 . Substantial changes made due to your suggestions will add you to the next
 version of the contributor list (unless you ask to be omitted). Thank you!
 
-This version of the book is available on [github](https://github.com/tBuLi/HowToThink) at <https://github.com/tBuLi/HowToThink>. There you are welcome to report issues and suggest changes.
 
 
 Second Edition
