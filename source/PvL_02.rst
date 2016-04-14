@@ -301,15 +301,15 @@ they help the programmer document, or remember, what the variable is used for.
 
    .. sourcecode:: python3
 
-	e = 3.1415
-	ray = 10
-	size= e * ray ** 2
+    e = 3.1415
+    ray = 10
+    size = e * ray ** 2
 
    .. sourcecode:: python3
 
-	pi = 3.1415
-	radius = 10
-	area= pi * radius ** 2
+    pi = 3.1415
+    radius = 10
+    area = pi * radius ** 2
 
    The above two snippets do exactly the same thing, but the bottom one uses the right kind of variable names. 
    For the computer there is no difference at all, but for a human, using the names and letters that are part 

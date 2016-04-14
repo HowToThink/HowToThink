@@ -279,7 +279,7 @@ and our charming turtle ``tess``. ``The next line calls ``draw_square``, asking 
 ``window.mainloop()`` actually runs these executions, and you will see ``tess`` draw a square on the screen.
 
 Being able to trace your program is a valuable skill for a programmer.
-	
+
 
 .. index::
     single: parameter

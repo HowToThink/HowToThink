@@ -480,9 +480,9 @@ Compare the output of the code above with what Python does itsself with the code
     .. sourcecode:: python3
         :linenos:
 
-       	haystack = "Bananarama!"
-	print (haystack.find('a'))
-	print (my_find(haystack,'a'))
+        haystack = "Bananarama!"
+        print(haystack.find('a'))
+        print(my_find(haystack,'a'))
 
 
 In a sense, ``find`` is the opposite of the indexing operator. Instead of taking
@@ -539,9 +539,9 @@ starting position in the search string:
         
         def find2(haystack, needle, start):
             for index,letter in enumerate(haystack[start:])
-		if letter == needle:
-			return index
-	    return -1
+                if letter == needle:
+                    return index
+            return -1
             
     
             
@@ -560,9 +560,9 @@ Better still, we can combine ``find`` and ``find2`` using an
         
         def find(haystack, needle, start=0):
             for index,letter in enumerate(haystack[start:])
-		if letter == needle:
-			return index
-	    return -1
+                if letter == needle:
+                    return index
+            return -1
             
 
 When a function has an optional parameter, the caller `may` provide a 
@@ -582,9 +582,9 @@ position, up to but not including the end position:
         
         def find(haystack, needle, start=0,end=-1):
             for index,letter in enumerate(haystack[start:end])
-		if letter == needle:
-			return index
-	    return -1
+                if letter == needle:
+                    return index
+            return -1
             
 The semantics of ``start`` and ``end`` in this function are precisely the same as they are in
 the ``range`` function.
@@ -1665,8 +1665,8 @@ looks even better now! The version above is not the right way to do things!)
         
         horsemen = ["war", "famine", "pestilence", "death"]
         
-	for horseman in horsemen:
-		print horseman
+        for horseman in horsemen:
+            print horseman
 
 Although a list can contain another list, the nested list still counts as a
 single element in its parent list. The length of this list is 4:
