@@ -751,13 +751,13 @@ The numbers in the place holders are indexes that determine which argument
 gets substituted --- make sure you understand line 6 above! 
 
 But there's more!  Each of the replacement fields can also contain a **format specification** ---
-it is always introduced by the ``:`` symbol  (Line 11 above uses one.)  
+it is always introduced by the ``:`` symbol  (Line 13 above uses one.)  
 This modifies how the substitutions are made into the template, and can control things like:
 
 * whether the field is aligned to the left ``<``, center ``^``, or right ``>``
 * the width allocated to the field within the result string (a number like ``10``)
 * the type of conversion (we'll initially only force conversion to float, ``f``, as we did in
-  line 11 of the code above, or perhaps we'll ask integer numbers to be converted to hexadecimal using ``x``)
+  line 13 of the code above, or perhaps we'll ask integer numbers to be converted to hexadecimal using ``x``)
 * if the type conversion is a float, you can also specify how many decimal places are wanted 
   (typically, ``.2f`` is useful for working with currencies to two decimal places.)
 
