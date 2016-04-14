@@ -469,10 +469,10 @@ What does the following function do?
               Find and return the index of needle in haystack.  
               Return -1 if needle does not occur in haystack.
             """
-            for index,letter in enumerate(haystack)
-		if letter == needle:
-			return index
-	    return -1
+            for index, letter in enumerate(haystack)
+                if letter == needle:
+                    return index
+            return -1
             
     
 Compare the output of the code above with what Python does itsself with the code below:
