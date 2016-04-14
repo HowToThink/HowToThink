@@ -43,7 +43,7 @@ turtle and start drawing a rectangle. (We'll call the variable that
 refers to our first turtle ``alex``, but we can choose another 
 name if we follow the naming rules from the previous chapter).
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
        :linenos:
        
         import turtle             # Allows us to use turtles
@@ -104,7 +104,7 @@ window objects.  We'll just show a couple. In this program we've only commented 
 lines that are different from the previous example (and we've used a different
 variable name for this turtle):
     
-    .. sourcecode:: python3
+    .. sourcecode:: python
        :linenos:
 
         import turtle
@@ -150,7 +150,7 @@ Each of them is called an **instance**.  Each instance has its own attributes an
 methods --- so ``alex`` might draw with a thin black pen and be at some position,
 while ``tess`` might be going in her own direction with a fat pink pen. 
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
        :linenos:
        
         import turtle
@@ -231,7 +231,7 @@ Python's **for** loop solves this for us.   Let's say we have some friends, and
 we'd like to send them each an email inviting them to our party.  We don't
 quite know how to send email yet, so for the moment we'll just print a message for each friend:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
 
         for friend in ["Joe","Zoe","Brad","Angelina","Zuki","Thandi","Paris"]:
@@ -299,7 +299,7 @@ To draw a square we'd like to do the same thing four times --- move the turtle, 
 We previously used 8 lines to have ``alex`` draw the four sides of a square.  
 This does exactly the same, but using just three lines:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
 
         for i in [0,1,2,3]:
@@ -319,7 +319,7 @@ Some observations:
   have used any four values, but these are the conventional ones to use.  In fact, they are
   so popular that Python gives us special built-in ``range`` objects:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
 
         for i in range(4):
@@ -341,7 +341,7 @@ Some observations:
   
 So to repeat something four times, a good Python programmer would do this:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
 
         for _ in range(4):
@@ -353,7 +353,7 @@ By now you should be able to see how to change our previous program so that
 
 But now, what would happen if we made this change?
     
-   .. sourcecode:: python3
+   .. sourcecode:: python
         :linenos:
 
         for color in ["yellow", "red", "purple", "blue"]:
@@ -364,7 +364,7 @@ But now, what would happen if we made this change?
 A variable can also be assigned a value that is a list.  So lists can also be used in
 more general situations, not only in the ``for`` loop.  The code above could be rewritten like this:
  
-   .. sourcecode:: python3
+   .. sourcecode:: python
         :linenos:
 
         # Assign a list to a variable
@@ -399,7 +399,7 @@ if we're going to play with turtles.
 A turtle's pen can be picked up or put down.  This allows us to move a turtle
 to a different place without drawing a line.   The methods are 
 
-  .. sourcecode:: python3
+  .. sourcecode:: python
         :linenos:
 
         alex.penup()
@@ -409,7 +409,7 @@ to a different place without drawing a line.   The methods are
 Every turtle can have its own shape.  The ones available "out of the box"
 are ``arrow``, ``blank``, ``circle``, ``classic``, ``square``, ``triangle``, ``turtle``.
 
-  .. sourcecode:: python3
+  .. sourcecode:: python
         :linenos:
            
         alex.shape("turtle")           
@@ -422,7 +422,7 @@ quickly the turtle turns and moves forward).  Speed settings can be set
 between 1 (slowest) to 10 (fastest).  But if we set the speed to 0, it has 
 a special meaning --- turn off animation and go as fast as possible. 
 
-  .. sourcecode:: python3
+  .. sourcecode:: python
         :linenos:
        
         alex.speed(10)
@@ -433,7 +433,7 @@ Stamping works, even when the pen is up.
     
 Let's do an example that shows off some of these new features:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
        
         import turtle
@@ -491,7 +491,7 @@ This is the basis of all modern computer logic.
 In Python, the two Boolean values are ``True`` and ``False`` (the
 capitalization must be exactly as shown), and the Python type is **bool**.
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         
         >>> type(True)
         <class 'bool'> 
@@ -504,7 +504,7 @@ A **Boolean expression** is an expression that evaluates to produce a result whi
 a Boolean value.  For example, the operator ``==`` tests if two values are equal.  
 It produces (or *yields*) a Boolean value:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         
         >>> 5 == (3 + 2)   # Is five equal 5 to the result of 3 + 2? 
         True
@@ -520,7 +520,7 @@ to ``True``; in the second statement, 5 is not equal to 6, so we get ``False``.
 The ``==`` operator is one of six common **comparison operators** which all produce 
 a ``bool`` result; here are all six:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         
         x == y               # Produce True if ... x is equal to y
         x != y               # ... x is not equal to y
@@ -539,7 +539,7 @@ Like any other types we've seen so far, Boolean values can be assigned to
 variables, printed, etc.
 
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
      
         >>> age = 19
         >>> old_enough_to_get_driving_licence = age >= 18
@@ -626,7 +626,7 @@ Simplifying Boolean Expressions
 A set of rules for simplifying and rearranging expressions is called an *algebra*. 
 For example, we are all familiar with school algebra rules, such as:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
     
         n * 0 == 0
 
@@ -681,7 +681,7 @@ conditions and change the behavior of the program accordingly. **Conditional
 statements** give us this ability. The simplest form is the **if**
 statement:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         if x % 2 == 0:
@@ -703,7 +703,7 @@ the statements indented under the ``else`` clause get executed.
 
 The syntax for an ``if`` statement looks like this:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         if <BOOLEAN EXPRESSION>:
@@ -730,7 +730,7 @@ to have a section with no statements (usually as a place keeper, or scaffolding,
 for code we haven't written yet). In that case, we can use the ``pass`` statement, which
 does nothing except act as a placeholder.
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         if True:          # This is always True,
@@ -753,7 +753,7 @@ In this case, when the condition evaluates to ``True``, the statements are
 executed, otherwise the flow of execution continues to the statement after the ``if``.
 
       
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
 
         if x < 0:
@@ -789,7 +789,7 @@ Sometimes there are more than two possibilities and we need more than two
 branches. One way to express a computation like that is a **chained
 conditional**:
    
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         if x < y:
@@ -808,7 +808,7 @@ executed. There is no limit of the number of ``elif`` statements but only a
 single (and optional) final ``else`` statement is allowed and it must be the last
 branch in the statement:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         if choice == "a":
@@ -843,7 +843,7 @@ the previous example as follows:
 
 ..
    
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         if x < y:
@@ -867,7 +867,7 @@ Logical operators often provide a way to simplify nested conditional
 statements. For example, we can rewrite the following code using a single
 conditional:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         if 0 < x:            # Assume x is an int here
@@ -879,7 +879,7 @@ conditionals, so instead of the above which uses two ``if`` statements each with
 a simple condition, we could make a more complex condition using the ``and`` operator.  Now we only
 need a single ``if`` statement:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         if 0 < x and x < 10:
@@ -887,7 +887,7 @@ need a single ``if`` statement:
 
 In this case there is a third option:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         if 0 < x < 10:
@@ -925,7 +925,7 @@ our intentions will usually be clearer if we can eliminate them.
 
 For example, if we wrote this Python:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         if not (age >= 18):
@@ -934,7 +934,7 @@ For example, if we wrote this Python:
 it would probably be clearer to use the simplification laws, and to 
 write instead:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         if age < 18:
@@ -956,7 +956,7 @@ lightsabre sword is charged to 90% or higher,
 and we have 100 or more energy units in our protective shield.  
 We find this fragment of Python code in the game:
 
-      .. sourcecode:: python3
+      .. sourcecode:: python
         :linenos:
         
         if not (sword_charge >= 0.90 and shield_energy >= 100):
@@ -967,7 +967,7 @@ We find this fragment of Python code in the game:
 de Morgan's laws together with the logical opposites would let us
 rework the condition in a (perhaps) easier to understand way like this:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         if sword_charge < 0.90 or shield_energy < 100:
@@ -978,7 +978,7 @@ rework the condition in a (perhaps) easier to understand way like this:
 We could also get rid of the ``not`` by swapping around the ``then`` and
 ``else`` parts of the conditional.  So here is a third version, also equivalent:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         if sword_charge >= 0.90 and shield_energy >= 100:
@@ -988,7 +988,7 @@ We could also get rid of the ``not`` by swapping around the ``then`` and
 
 To improve readability, there is this fourth version:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
     sword_check = sword_charge >= 0.90
@@ -1051,7 +1051,7 @@ As we have mentioned previously, it is legal to make more than one assignment to
 same variable. A new assignment makes an existing variable refer to a new value
 (and stop referring to the old value).
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         airtime_remaining = 15
@@ -1084,7 +1084,7 @@ In Python, an assignment statement can make
 two variables equal, but because further assignments can change either of them, 
 they don't have to stay that way:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         a = 5
@@ -1112,7 +1112,7 @@ One of the most common forms of assignment is an update, where the new
 value of the variable depends on its old value.   Deduct 40 cents from
 my airtime balance, or add one run to the scoreboard. 
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         n = 5
@@ -1125,7 +1125,7 @@ integer 16.
 
 If you try to get the value of a variable that has never been assigned to, you'll get an error:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         
         >>> w = x + 1
         Traceback (most recent call last):
@@ -1135,7 +1135,7 @@ If you try to get the value of a variable that has never been assigned to, you'l
 Before you can update a variable, you have to **initialize** it to some starting value, 
 usually with a simple assignment:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         runs_scored = 0
@@ -1147,7 +1147,7 @@ It is called an **increment** of the variable; subtracting 1 is called a **decre
 Sometimes programmers also talk about *bumping* a variable, which means the same 
 as incrementing it by 1. This is commonly done with the ``+=`` operator.
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         runs_scored = 0
@@ -1164,7 +1164,7 @@ Recall that the ``for`` loop processes each item in a list.  Each item in
 turn is (re-)assigned to the loop variable, and the body of the loop is executed.
 We saw this example before:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
 
         for friend in ["Joe", "Zoe", "Brad", "Angelina", "Zuki", "Thandi", "Paris"]:
@@ -1203,13 +1203,13 @@ The ``while`` statement
 Here is a fragment of code that demonstrates the use of the ``while`` statement:
 
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
            
         while <CONDITION>:
             <STATEMENT>
     
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
             
         n = 6
@@ -1257,7 +1257,7 @@ loop one has to manage the loop variable yourself: give it an initial value, tes
 for completion, and then make sure you change something in the body so that the loop
 terminates.  By comparison, here is an equivalent snippet that uses ``for`` instead: 
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
 
         n = 6
@@ -1290,7 +1290,7 @@ terminates when ``n`` reaches 1.
 
 This Python snippet captures that algorithm:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
 
@@ -1434,7 +1434,7 @@ Counting digits
 The following snippet counts the number of decimal digits in a positive
 integer:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
 
         n = 3029
@@ -1455,7 +1455,7 @@ number of digits.
 If we wanted to only count digits that are either 0 or 5, adding a conditional
 before incrementing the counter will do the trick:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         n = 2574301453
@@ -1546,7 +1546,7 @@ Although a log table is not as useful as it once was, it still makes a good
 example of iteration. The following program outputs a sequence of values in the
 left column and 2 raised to the power of that value in the right column:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         for x in range(13):   # Generate numbers 0 to 12
@@ -1602,7 +1602,7 @@ want to print a multiplication table for the values from 1 to 6.
 A good way to start is to write a loop that prints the multiples of 2, all on
 one line:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         for i in range(1, 7):
@@ -1636,7 +1636,7 @@ The ``break`` statement
 The **break** statement is used to immediately leave the body of its loop.  The next
 statement to be executed is the first one after the body: 
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         for i in [12, 16, 17, 24, 29]: 
@@ -1680,7 +1680,7 @@ input the next number, then test whether to exit, or else process the number:
 
         .. image:: illustrations/mid_test_loop.png 
         
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         total = 0
@@ -1712,7 +1712,7 @@ only happens at the end of the execution of the first loop body).
 This is useful, for example, if we want to play an interactive game against 
 the user --- we always want to play at least one game:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
 
         while True:
@@ -1741,7 +1741,7 @@ An example
 The following program implements a simple guessing game:
 
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         import random                   # We cover random numbers in the
@@ -1787,7 +1787,7 @@ This is a control flow statement that causes the program to immediately skip the
 processing of the rest of the body of the loop, *for the current iteration*.  But
 the loop still carries on running for its remaining iterations: 
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
 
         for i in [12, 16, 17, 24, 29, 30]: 
@@ -1817,14 +1817,14 @@ the textbook a little, and show a more advanced way of representing our data.
 Making a pair of things in Python is as simple as putting them into parentheses,
 like this:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         year_born = ("Paris Hilton", 1981) 
    
 We can put many pairs into a list of pairs:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         celebs = [("Brad Pitt", 1963), ("Jack Nicholson", 1937), 
@@ -1833,7 +1833,7 @@ We can put many pairs into a list of pairs:
 Here is a quick sample of things we can do with structured data like this.  First,
 print all the celebs: 
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         print(celebs)
@@ -1849,7 +1849,7 @@ Notice that the ``celebs`` list has just 3 elements, each of them pairs.
  
 Now we print the names of those celebrities born before 1980:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         for name, year in celebs:
@@ -1875,7 +1875,7 @@ Now we'll come up with an even more adventurous list of structured data.  In thi
 we have a list of students.  Each student has a name which is paired up with another list
 of subjects that they are enrolled for: 
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         students = [
@@ -1888,7 +1888,7 @@ of subjects that they are enrolled for:
 Here we've assigned a list of five elements to the variable ``students``.  Let's print
 out each student name, and the number of subjects they are enrolled for:
  
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
 
         # Print all students with a count of their courses.
@@ -1909,7 +1909,7 @@ Python agreeably responds with the following output:
 Now we'd like to ask how many students are taking CompSci. This needs a counter,
 and for each student we need a second loop that tests each of the subjects in turn:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         # Count how many students are taking CompSci
@@ -1927,7 +1927,7 @@ and for each student we need a second loop that tests each of the subjects in tu
 
 A more concise of doing this would be the following:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         counter = 0
@@ -1957,7 +1957,7 @@ Suppose that you want to know the square root of ``n``. If you start
 with almost any approximation, you can compute a better approximation (closer
 to the actual answer) with the following formula:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         better = (approximation + n/approximation)/2
@@ -1985,7 +1985,7 @@ square root of two has an infinite number of decimal places because it is irrati
 need to formulate the stopping test for the loop by asking "is `a` close enough to `b`"?
 This stopping condition can be coded like this:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
 
         threshold = 0.001
@@ -1996,7 +1996,7 @@ Notice that we take the absolute value of the difference between ``a`` and ``b``
         
 This problem is also a good example of when a middle-exit loop is appropriate:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
         
         n = 8
@@ -2068,7 +2068,7 @@ Problems with logic and flow of control
 We often want to know if some condition holds for any item in a list, e.g. "does the list have any odd numbers?"
 This is a common mistake:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
        :linenos:
 
        numbers = [10, 5, 24, 8, 6]
@@ -2088,7 +2088,7 @@ return ``False`` after only looking at one item --- we can only return ``False``
 all the items, and none of them are odd.  So line 10 should not be there, and lines 8 and 9 have to be
 outside the loop.  Here is a corrected version:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
        :linenos:
 
        numbers = [10, 5, 24, 8, 6]
@@ -2110,7 +2110,7 @@ soon as we are certain what the outcome will be again later.
 
 It is preferred over this one, which also works correctly:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
        :linenos:
 
 
@@ -2139,7 +2139,7 @@ to either ``True`` or ``False``).  That ``True``/``False`` value can be used
 directly in the ``print`` statement.  So we could cut out that code and simply 
 have the following:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
        :linenos:
 
        numbers = [10, 5, 24, 8, 6]
@@ -2155,7 +2155,7 @@ return as soon as the first odd number was found.
 
 Even shorter:
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
        :linenos:
 
        numbers = [10, 5, 24, 8, 6]
@@ -2197,7 +2197,7 @@ So loops are going to be a central feature of almost all programs you encounter.
 Here are two functions that both generate ten million random numbers, and return
 the sum of the numbers.  They both work. 
 
-    .. sourcecode:: python3
+    .. sourcecode:: python
         :linenos:
 
         import random
@@ -2536,7 +2536,7 @@ Exercises
     If a good programmer wants to know whether
     ``x`` is equal or close enough to ``y``, they would probably code it up as:
     
-    .. sourcecode:: python3
+    .. sourcecode:: python
 
       threshold = 1e-7    
       if  abs(x-y) < threshold:    # If x is approximately equal to y
@@ -2550,7 +2550,7 @@ Exercises
     memory or on your calculator has similar problems: memory is finite, and some digits may have to be discarded. So small
     inaccuracies creep in.   Try this script:
     
-   .. sourcecode:: python3
+   .. sourcecode:: python
       :linenos:
    
         import math     
@@ -2603,7 +2603,7 @@ Exercises
    then record what happens. Score yourself, giving yourself one point for each one you 
    anticipate correctly:
    
-        .. sourcecode:: python3 
+        .. sourcecode:: python
 
             >>> import turtle
             >>> window = turtle.Screen()
