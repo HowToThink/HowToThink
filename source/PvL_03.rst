@@ -1204,16 +1204,16 @@ Here is a fragment of code that demonstrates the use of the ``while`` statement:
 
 
     .. sourcecode:: python3
-    :linenos:
-       
+        :linenos:
+           
         while <CONDITION>:
-        <STATEMENT>
-
+            <STATEMENT>
+    
     .. sourcecode:: python3
         :linenos:
-        
-    n = 6
-
+            
+        n = 6
+    
         current_sum  = 0
         i = 1
         while i <= n:
@@ -1437,7 +1437,7 @@ integer:
     .. sourcecode:: python3
         :linenos:
 
-    n = 3029
+        n = 3029
         count = 0
         while n != 0:
             count = count + 1
@@ -1458,7 +1458,7 @@ before incrementing the counter will do the trick:
     .. sourcecode:: python3
         :linenos:
         
-    n = 2574301453
+        n = 2574301453
         count = 0
         while n > 0:
             digit = n % 10
