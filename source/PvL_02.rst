@@ -252,7 +252,7 @@ special meaning, so a safe rule for beginners is to start all names with a lette
  
 If you give a variable an illegal name, you get a syntax error:
 
-    .. sourcecode:: python3
+    .. sourcecode:: text
         
         >>> 76trombones = "big parade"
         SyntaxError: invalid syntax

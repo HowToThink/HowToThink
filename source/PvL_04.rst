@@ -17,7 +17,7 @@ the problem.
  
 The syntax for a **function definition** is:
 
-    .. sourcecode:: python3
+    .. sourcecode:: text
         
         def <NAME>( <PARAMETERS> ):
             <STATEMENTS>
