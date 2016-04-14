@@ -33,6 +33,7 @@ illustrated by Dario Mitchell
 .. toctree::
     :maxdepth: 1
     :numbered:
+    :hidden:
 
     PvL_01.rst
     PvL_02.rst
@@ -41,6 +42,18 @@ illustrated by Dario Mitchell
     PvL_05.rst
     PvL_06.rst
     PvL_07.rst
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    PvL_A.rst
+    PvL_B.rst
+    PvL_C.rst
+    PvL_D.rst
+    PvL_E.rst
+    PvL_F.rst
+    PvL_G.rst
 
 .. toctree::
     :maxdepth: 1
