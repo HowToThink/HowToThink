@@ -4,7 +4,7 @@ Contributions
 This version is adapted the third edition of the book "How to Think Like
 a Computer Scientist" by Peter Wentworth, Jeffrey Elkner, Allen B. Downey, and
 Chris Meyers; as found on
-`https://code.launchpad.net/~thinkcspy-rle-team/thinkcspy/thinkcspy3-rle`.
+`<https://code.launchpad.net/~thinkcspy-rle-team/thinkcspy/thinkcspy3-rle>`_.
 
 This book is used for the course "Programming for Life Scientists" as taught at
 the University of Groningen (RuG). As such, the original book was adapted to
@@ -16,8 +16,8 @@ problems.
 
 This version of the book is available on `github
 <https://github.com/tBuLi/HowToThink>`_ at
-`https://github.com/tBuLi/HowToThink`. There you are welcome to report issues
-and suggest changes.
+`<https://github.com/tBuLi/HowToThink>`_. There you are welcome to report
+issues and suggest changes.
 
 Original contributor List
 -------------------------
