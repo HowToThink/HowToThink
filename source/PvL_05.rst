@@ -451,7 +451,7 @@ write a function that removes all the vowels from a string:
                     string_sans_vowels += letter
             return string_sans_vowels
 
-Important to note is the ``letter.lower()`` in line 5, without it, any uppercase vowels would be removed. 
+Important to note is the ``letter.lower()`` in line 5, without it, any uppercase vowels would not be removed. 
 
 .. index:: traversal, eureka traversal, short-circuit evaluation, pattern of computation,
            computation pattern
@@ -469,13 +469,13 @@ What does the following function do?
               Find and return the index of needle in haystack.  
               Return -1 if needle does not occur in haystack.
             """
-            for index, letter in enumerate(haystack)
+            for index, letter in enumerate(haystack):
                 if letter == needle:
                     return index
             return -1
             
     
-Compare the output of the code above with what Python does itsself with the code below:
+Compare the output of the code above with what Python does itself with the code below:
 
     .. sourcecode:: python3
         :linenos:
