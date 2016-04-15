@@ -3029,7 +3029,7 @@ contains pairs of letters and their frequencies.
 
 It might be more appealing to display the frequency table in alphabetical order. We
 can do that with the ``items`` and ``sort`` methods (more precisely, ``sort`` orders
-lexicographically, not alphabetically):
+lexicographically):
 
     .. sourcecode:: python3
         
