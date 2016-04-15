@@ -2704,7 +2704,7 @@ Exercises
             replace("Mississippi", "i", "I") == "MIssIssIppI"
           
             song = "I love spom! Spom is my favorite food. Spom, spom, yum!"
-            replace(song, "om", "am") ==
+            replace(s, "om", "am") ==
                 "I love spam! Spam is my favorite food. Spam, spam, yum!"
         
             replace(s, "o", "a") ==
@@ -2880,7 +2880,7 @@ list like this:
     .. sourcecode:: python3
         :linenos:
         
-        for keys in english_spanish.keys():   # The order of the k's is not defined
+        for key in english_spanish.keys():   # The order of the k's is not defined
            print("Got key", key, "which maps to value", english_spanish[key])     
            
         keys = list(english_spanish.keys())
@@ -3028,7 +3028,8 @@ current count (possibly zero) and increment it. At the end, the dictionary
 contains pairs of letters and their frequencies.
 
 It might be more appealing to display the frequency table in alphabetical order. We
-can do that with the ``items`` and ``sort`` methods:
+can do that with the ``items`` and ``sort`` methods (more precisely, ``sort`` orders
+lexicographically, not alphabetically):
 
     .. sourcecode:: python3
         
