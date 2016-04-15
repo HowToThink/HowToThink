@@ -991,8 +991,8 @@ To improve readability, there is this fourth version:
     .. sourcecode:: python
         :linenos:
         
-    sword_check = sword_charge >= 0.90
-    shield_check = shield_energy >= 100
+        sword_check = sword_charge >= 0.90
+        shield_check = shield_energy >= 100
 
         if sword_check and shield_check:
             print("The dragon crumples in a heap. You rescue the gorgeous princess!")   
