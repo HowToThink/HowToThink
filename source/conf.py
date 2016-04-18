@@ -190,7 +190,7 @@ latex_use_parts = False
 #latex_preamble = ''
 
 # Documents to append as an appendix to all manuals.
-latex_appendices = ['PvL_A','PvL_B','PvL_C','PvL_D','PvL_E','PvL_F','PvL_G']
+latex_appendices = ['PvL_A','PvL_B','PvL_C','PvL_D','PvL_E','PvL_F','PvL_G', 'PvL_H']
 
 # If false, no module index is generated.
 #latex_use_modindex = True

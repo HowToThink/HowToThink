@@ -2,7 +2,7 @@ Numpy
 =====
 
 The standard Python data types are not very suited for mathematical operations. For example, suppose we have the list ``a = [2, 3, 8]``. 
-If we multiply the list by a integer, we get:
+If we multiply this list by an integer, we get:
 
     .. sourcecode:: python3
 
@@ -10,7 +10,7 @@ If we multiply the list by a integer, we get:
         >>> 2 * a
         [2, 3, 8, 2, 3, 8]
 
-And float's are not even allowed:
+And ``float``'s are not even allowed:
 
     .. sourcecode:: python3
 
@@ -57,24 +57,28 @@ Now let's take it a step further and see what happens when we multiply together 
 This has nicely squared the array element-wise.
 
     ..  note::
-        Those in the know might be a bit supriced by this. 
+        Those in the know might be a bit surprised by this. 
         After all, if ``a`` is a vector, shouldn't ``a**2`` be the dot product of the two vectors, :math:`\vec{a} \cdot \vec{a}`?
-        From a mathematical point of view, vectors are just 1 x N matrices. Therefore, in order to get matrix behavior, we should use ``np.matrix``:
+        Well, ``numpy`` arrays are not vectors in the algebraic sense. Arithmetic operations between arrays 
+        are performed element-wise, not on the arrays as a whole.
+        
+        To tell ``numpy`` we want the dot product we simply use the ``np.dot`` function: 
 
             .. sourcecode:: python3
 
-                >>> a = np.matrix([2, 3, 8])
-                >>> a*a.T
-                matrix([[77]])
+                >>> a = np.array([2, 3, 8])
+                >>> np.dot(a,a)
+                77
 
-        Where ``a.T`` is the transpose of ``a``. 
+        Furthermore, if you pass 2D arrays to ``np.dot`` it will behave like matrix multiplication. Several other similar 
+        NumPy algebraic functions are available (like ``np.cross``, ``np.outer``, etc.)
 
-        Bottomline: array's are not vectors! Operations are performed element-wise, not on the array as a whole.
+        **Bottom line**: when you want to treat ``numpy`` array operations as vector or matrix operations, make use of the specialized functions to this end.
 
 Shape
 -----
 
-One of the most important properties an array is it's shape. We have already seen 1 dimensional (1D) arrays, but arrays can have any dimensions you like. 
+One of the most important properties an array is its shape. We have already seen 1 dimensional (1D) arrays, but arrays can have any dimensions you like. 
 Images for example, consist of a 2D array of pixels. But in color images every pixel is an RGB tuple: the intensity in red, green and blue. Every pixel itself is therefore an array as well.
 This makes a color image 3D overall.
 
@@ -143,6 +147,8 @@ By comparing with the definition of ``b``, we see that this is the column we wer
     .. note::
         Instead of first, I write 1th on purpose to signify the existence of a 0th element. Remember that in Python, as in any self-respecting programming language, we start counting at zero. 
 
+Find out more about advanced slicing at the `Numpy indexing documentation <http://docs.scipy.org/doc/numpy/reference/arrays.indexing.html>`_ page.
+
 Masking
 -------
 
@@ -155,7 +161,7 @@ This is perhaps the single most powerful feature of Numpy. Suppose we have an ar
         >>> a > cutoff
         np.array([True, False, True, False, False])
 
-Simply using the larger than operator let's us know in which cases the test was positive. Now we set all the values above 200 to zero:
+Simply using the larger than operator lets us know in which cases the test was positive. Now we set all the values above 200 to zero:
 
     .. sourcecode:: python3
 
@@ -165,7 +171,7 @@ Simply using the larger than operator let's us know in which cases the test was 
         >>> a
         np.array([0, 10, 0, 39, 76])
 
-The crucial line is ``a[a > cutoff] = 0``. This selects all the points in the array where the test was positive and assigns 0 to that position. Without knowing this trick, we would have looped over the array:
+The crucial line is ``a[a > cutoff] = 0``. This selects all the points in the array where the test was positive and assigns 0 to that position. Without knowing this trick we would have had to loop over the array:
 
     .. sourcecode:: python3
 
@@ -183,6 +189,67 @@ Looks rather silly now, doesn't it? When working with images this becomes even m
 because there we might have to loop over three dimensions before we can use the if/else. 
 Can you imagine the mess?
 
+Broadcasting
+------------
+
+Another powerful feature of Numpy is broadcasting. Broadcasting takes place when you perform operations between arrays of different shapes. For instance
+
+    .. sourcecode:: python3
+
+        >>> a = np.array([
+            [0, 1],
+            [2, 3],
+            [4, 5],
+            ])
+        >>> b = np.array([10, 100])
+        >>> a * b
+        array([[  0, 100],
+               [ 20, 300],
+               [ 40, 500]])
+
+The shapes of ``a`` and ``b`` don't match. In order to proceed, Numpy will stretch ``b`` into a second dimension, as if it were stacked three times upon itself.
+The operation then takes place element-wise.
+
+One of the rules of broadcasting is that only dimensions of size 1 can be stretched (if an array only has one dimension, all other dimensions are considered for
+broadcasting purposes to have size 1). In the example above ``b`` is 1D, and has shape (2,). For broadcasting with ``a``, which has two dimensions, Numpy adds
+another dimension of size 1 to ``b``. ``b`` now has shape (1, 2). This new dimension can now be stretched three times so that ``b``'s shape matches ``a``'s
+shape of (3, 2).
+
+The other rule is that dimensions are compared from the last to the first. Any dimensions that do not match must be stretched to become equally sized. However,
+according to the previous rule, only dimensions of size 1 can stretch. This means that some shapes cannot broadcast and Numpy will give you an error:
+
+    .. sourcecode:: python3
+
+        >>> c = np.array([
+            [0, 1, 2],
+            [3, 4, 5],
+            ])
+        >>> b = np.array([10, 100])
+        >>> c * b
+        ValueError: operands could not be broadcast together with shapes (2,3) (2,)
+
+What happens here is that Numpy, again, adds a dimension to ``b``, making it of shape (1, 2). The sizes of the last dimensions of ``b`` and ``c`` (2 and 3,
+respectively) are then compared and found to differ. Since none of these dimensions is of size 1 (therefore, unstretchable) Numpy gives up and produces an
+error.
+
+The solution to multiplying ``c`` and ``b`` above is to specifically tell Numpy that it must add that extra dimension as the second dimension of ``b``. This is done by
+using ``None`` to index that second dimension. The shape of ``b`` then becomes (2, 1), which is compatible for broadcasting with ``c``:
+
+    .. sourcecode:: python3
+
+        >>> c = np.array([
+            [0, 1, 2],
+            [3, 4, 5],
+            ])
+        >>> b = np.array([10, 100])
+        >>> c * b[:, None]
+        array([[  0,  10,  20],
+               [300, 400, 500]])
+
+A good visual description of these rules, together with some advanced broadcasting applications can be found in this
+`tutorial of Numpy broadcasting rules <http://scipy.github.io/old-wiki/pages/EricsBroadcastingDoc>`_. 
+
+               
 dtype
 -----
 
@@ -242,12 +309,15 @@ To change the dtype of an existing array, you can use the ``astype`` method:
 Advanced Usage
 --------------
 
-Numpy has very extensive capabilities. It has way to many options to discuss here. More information can be found in the `Tentative NumPy Tutorial
-<http://wiki.scipy.org/Tentative_NumPy_Tutorial>`_.
+Numpy has vast capabilities. It has way too many options to discuss here. More information can be found in
+
+#. the `Quickstart Numpy Tutorial <https://docs.scipy.org/doc/numpy-dev/user/quickstart.html>`_;
+#. the `Numpy indexing documentation <http://docs.scipy.org/doc/numpy/reference/arrays.indexing.html>`_ (for advanced slicing and indexing);
+#. and the `Numpy broadcasting rules <http://scipy.github.io/old-wiki/pages/EricsBroadcastingDoc>`_ (for what happens when performing operations between arrays of different shapes and sizes).
 
 Excercises
 ----------
-#. Make an array with ``dtype = 'uint8`` and elements of your choosing. Keep adding to it until (one of) the items go over 255. What happens?
+#. Make an array with ``dtype = uint8`` and elements of your choosing. Keep adding to it until (one of) the items go over 255. What happens?
    Hint: make an array, and just add a constant to it. The constant will be added to all the items of the array element-wise.
 #. Use a mask to multiply all values below 100 in the following list by 2:
 

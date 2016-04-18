@@ -5,7 +5,7 @@ Introduction
 ------------
 
 There are many scientific plotting packages. In this chapter we focus on
-``matplotlib``, chosen because it integrates very well with Python.
+**matplotlib**, chosen because it is the *de facto* plotting library and integrates very well with Python.
 
 This is just a short introduction to the ``matplotlib`` plotting package. Its
 capabilities and customizations are described at length in the `project's
@@ -99,9 +99,18 @@ Adding information to the plot axes is straightforward to do:
     .. image:: illustrations/mpl_basic4.png
        :width: 300pt
 
-And adjusting axis ranges can be done by calling ``plt.axis``
-with a list of the four axis limits as its argument (in the order
-*xmin*, *xmax*, *ymin*, *ymax*):
+Also, adding an legend is rather simple:
+
+    .. sourcecode:: python3
+        >>> plt.plot([0.1, 0.2, 0.3, 0.4], [1, 2, 3, 4], label='first plot')
+        >>> plt.plot([0.1, 0.2, 0.3, 0.4], [1, 4, 9, 16], label='second plot')
+        >>> plt.legend()
+
+    .. image:: illustrations/mpl_basic4c.png
+       :width: 300pt
+
+And adjusting axis ranges can be done by calling ``plt.xlim`` and ``plt.ylim``
+with the lower and higher limits for the respective axes.
 
     .. sourcecode:: python3
 
@@ -109,7 +118,8 @@ with a list of the four axis limits as its argument (in the order
         >>> plt.plot([0.1, 0.2, 0.3, 0.4], [1, 4, 9, 16])
         >>> plt.xlabel("Time (s)")
         >>> plt.ylabel("Scale (Bananas)")
-        >>> plt.axis([0,1,-5,20])
+        >>> plt.xlim(0, 1)
+        >>> plt.ylim(-5, 20)
 
     .. image:: illustrations/mpl_basic4b.png
        :width: 300pt
@@ -177,6 +187,36 @@ Specifying narrower bars gives us a much better result:
     .. image:: illustrations/mpl_bar3.png
        :width: 300pt
 
+Sometimes you will want to compare a function to your measured data; for example when you just fitted a function. Of course this is possible with matplotlib. Let's say we fitted an quadratic function to the first 10 prime numbers, and want to check how good our fit matches our data.
+
+    .. sourcecode:: python3
+        :linenos:
+
+        import matplotlib.pyplot as plt
+
+        def found_fit(x):
+            return 0.388 * x**2  # Found with symfit.
+
+        x_data = list(range(10))
+        y_data = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+
+        x_func = list(range(50))
+        x_func = list(map(lambda x: x/5, x_func))  # Divide all x values by 5,
+                                                   # so it goes from 0 to 10.
+        y_func = list(map(found_fit, x_func))
+
+        plt.scatter(x_data, y_data, c='r', label='data')
+        plt.plot(x_func, y_func, label='$f(x) = 0.388 x^2$')
+        plt.xlabel('x')
+        plt.ylabel('y')
+        plt.title('Fitting primes')
+        plt.legend()
+        plt.show()
+
+We made the scatter plot red by passing it the keyword argument ``c='r'``; ``c`` stands for colour, ``r`` for red. In addition, the label we gave to the ``plot`` statement is in *LaTeX* format, making it very pretty indeed. It's not a great fit, but that's besides the point here.
+
+    .. image:: illustrations/mpl_scatter.png
+       :width: 300pt
 
 Interactivity and saving to file
 --------------------------------
@@ -216,4 +256,72 @@ calling ``plt.savefig``:
         formats and will yield the best quality, even if printed at very
         large sizes. Saving as png should be avoided, and saving as jpg
         should be avoided even more.
+
+Multiple figures
+----------------
+
+With this groundwork out of the way, we can move on to some more advanced matplotlib use. It is also possible to use it in an object-oriented manner, which allows for more separation between several plots and figures.
+Let's say we have two sets of data we want to plot next to eachother, rather than in the same figure. Matplotlib has several layers of organisation: first, there's an ``Figure`` object, which basically is the window you plot is drawn in. On top of that, there are ``Axes`` objects, which are your separate graphs. It is perfectly possible to have multiple (or no) Axes in one Figure. We'll explain the ``add_subplot`` method a bit later. For now, it just creates an Axis instance.
+
+    .. sourcecode:: python
+        :linenos:
+
+        import matplotlib.pyplot as plt
+
+        x_data = [0.1, 0.2, 0.3, 0.4]
+        y_data = [1, 2, 3, 4]
+
+        fig = plt.figure()
+        ax = fig.add_subplot(1, 1, 1)
+        ax.plot([0.1, 0.2, 0.3, 0.4], [1, 2, 3, 4])
+        ax.plot([0.1, 0.2, 0.3, 0.4], [1, 4, 9, 16])
+        ax.set_xlabel('Time (s)')
+        ax.set_ylabel('Scale (Bananas)')
+
+        plt.show()
+
+    .. image:: illustrations/mpl_basic4.png
+       :width: 300pt
+
+
+This example also neatly highlights one of Matplotlib's shortcomings: the API is highly inconsistent. Where we could do ``xlabel()`` before, we now need to do ``set_xlabel()``. In addition, we can't show the figures one by one (i.e. ``fig.show()``); instead we can only show them all at the same time with ``plt.show()``. 
+
+Now, we want to make multiple plots next to each other. We do that by calling ``plot`` on two different axes:
+
+    .. sourcecode:: python
+        :linenos:
+ 
+        x_data1 = [0.1, 0.2, 0.3, 0.4]
+        y_data1 = [1, 2, 3, 4]
+
+        x_data2 = [0.1, 0.2, 0.3, 0.4]
+        y_data2 = [1, 4, 9, 16]
+
+        fig = plt.figure()
+        ax1 = fig.add_subplot(1, 2, 1)
+        ax2 = fig.add_subplot(1, 2, 2)
+        ax1.plot(x_data1, y_data1, label='data 1')
+        ax2.plot(x_data2, y_data2, label='data 2')
+        ax1.set_xlabel('Time (s)')
+        ax1.set_ylabel('Scale (Bananas)')
+        ax1.set_title('first data set')
+        ax1.legend()
+        ax2.set_xlabel('Time (s)')
+        ax2.set_ylabel('Scale (Bananas)')
+        ax2.set_title('second data set')
+        ax2.legend()
+
+        plt.show()
+
+    .. image:: illustrations/mpl_oop1.png
+       :width: 300pt
+
+The ``add_subplot`` method returns an ``Axis`` instance and takes three arguments: the first is the number of rows to create; the second is the number of columns; and the last is which plot number we add right now. So in common usage you will need to call ``add_subplot`` once for every axis you want to make with the same first two arguments. What would happen if you first ask for one row and two columns, and for two rows and one column in the next call?
+
+Exercises
+---------
+
+ #. Plot a dashed line.
+ #. Search the matplotlib documentation, and plot a line with plotmarkers on all it's datapoints. You can do this with just one call to ``plt.plot``.
+
 

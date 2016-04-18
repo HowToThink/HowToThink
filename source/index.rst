@@ -25,7 +25,7 @@ illustrated by Dario Mitchell
 * `Appendix B <PvL_B.html>`__ *Datatypes*
 * `Appendix C <PvL_C.html>`__ *Recursion*
 * `Appendix D <PvL_D.html>`__ *Object Oriented Programming*
-* `Appendix E <PvL_E.html>`__ *Exception*
+* `Appendix E <PvL_E.html>`__ *Exceptions*
 * `Appendix F <PvL_F.html>`__ *Fitting and Scientific Data Handling*
 * `Appendix G <PvL_G.html>`__ *PyGame*
 * `Appendix H <PvL_H.html>`__ *Plotting with matplotlib*
@@ -34,6 +34,7 @@ illustrated by Dario Mitchell
 .. toctree::
     :maxdepth: 1
     :numbered:
+    :hidden:
 
     PvL_01.rst
     PvL_02.rst
@@ -42,6 +43,18 @@ illustrated by Dario Mitchell
     PvL_05.rst
     PvL_06.rst
     PvL_07.rst
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    PvL_A.rst
+    PvL_B.rst
+    PvL_C.rst
+    PvL_D.rst
+    PvL_E.rst
+    PvL_F.rst
+    PvL_G.rst
 
 .. toctree::
     :maxdepth: 1

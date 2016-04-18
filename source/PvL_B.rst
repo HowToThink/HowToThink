@@ -19,7 +19,7 @@ Mutable versus immutable and aliasing
 Some datatypes in Python are **mutable**. This means their contents can be changed after they have been created. Lists and dictionaries are good examples of mutable datatypes.
 
 .. sourcecode:: python3
-	
+    
     >>> my_list = [2, 4, 5, 3, 6, 1]
     >>> my_list[0] = 9
     >>> my_list
@@ -28,7 +28,7 @@ Some datatypes in Python are **mutable**. This means their contents can be chang
 Tuples and strings are examples of immutable datatypes, their contents can not be changed after they have been created:
 
 .. sourcecode:: python3
-	
+
     >>> my_tuple = (2, 5, 3, 1)
     >>> my_tuple[0] = 9
     Traceback (most recent call last):
@@ -39,35 +39,35 @@ Tuples and strings are examples of immutable datatypes, their contents can not b
 Mutability is usually useful, but it may lead to something called aliasing. In this case, two variables refer to the same object and mutating one will also change the other:
 
 .. sourcecode:: python3
-	
-	>>> list_one = [1, 2, 3, 4, 6]
-	>>> list_two = list_one
-	>>> list_two[-1] = 5
-	>>> list_one
-	[1, 2, 3, 4, 5]
+
+    >>> list_one = [1, 2, 3, 4, 6]
+    >>> list_two = list_one
+    >>> list_two[-1] = 5
+    >>> list_one
+    [1, 2, 3, 4, 5]
 
 This happens, because both list_one and list_two refer to the same memory address containing the actual list. You can check this using the built-in function ``id``:
 
 .. sourcecode:: python3
 
-	>>> list_one = [1, 2, 3, 4, 6]
-	>>> list_two = list_one
-	>>> id(list_one) == id(list_two)
-	True
+    >>> list_one = [1, 2, 3, 4, 6]
+    >>> list_two = list_one
+    >>> id(list_one) == id(list_two)
+    True
 
 You can escape this problem by making a copy of the list: 
 
 .. sourcecode:: python3
-	
-	>>> list_one = [1, 2, 3, 4, 6]
-	>>> list_two = list_one[:]
-	>>> id(list_one) == id(list_two)
-	False
-	>>> list_two[-1] = 5
-	>>> list_two
-	[1, 2, 3, 4, 5]
-	>>> list_one
-	[1, 2, 3, 4, 6]
+
+    >>> list_one = [1, 2, 3, 4, 6]
+    >>> list_two = list_one[:]
+    >>> id(list_one) == id(list_two)
+    False
+    >>> list_two[-1] = 5
+    >>> list_two
+    [1, 2, 3, 4, 5]
+    >>> list_one
+    [1, 2, 3, 4, 6]
 
 However, this will not work for nested lists because of the same reason. The module ``copy`` provides functions to solve this.
 

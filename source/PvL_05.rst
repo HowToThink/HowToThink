@@ -451,7 +451,7 @@ write a function that removes all the vowels from a string:
                     string_sans_vowels += letter
             return string_sans_vowels
 
-Important to note is the ``letter.lower()`` in line 5, without it, any uppercase vowels would be removed. 
+Important to note is the ``letter.lower()`` in line 5, without it, any uppercase vowels would not be removed. 
 
 .. index:: traversal, eureka traversal, short-circuit evaluation, pattern of computation,
            computation pattern
@@ -469,20 +469,20 @@ What does the following function do?
               Find and return the index of needle in haystack.  
               Return -1 if needle does not occur in haystack.
             """
-            for index,letter in enumerate(haystack)
-		if letter == needle:
-			return index
-	    return -1
+            for index, letter in enumerate(haystack):
+                if letter == needle:
+                    return index
+            return -1
             
     
-Compare the output of the code above with what Python does itsself with the code below:
+Compare the output of the code above with what Python does itself with the code below:
 
     .. sourcecode:: python3
         :linenos:
 
-       	haystack = "Bananarama!"
-	print (haystack.find('a'))
-	print (my_find(haystack,'a'))
+        haystack = "Bananarama!"
+        print(haystack.find('a'))
+        print(my_find(haystack,'a'))
 
 
 In a sense, ``find`` is the opposite of the indexing operator. Instead of taking
@@ -539,9 +539,9 @@ starting position in the search string:
         
         def find2(haystack, needle, start):
             for index,letter in enumerate(haystack[start:])
-		if letter == needle:
-			return index
-	    return -1
+                if letter == needle:
+                    return index
+            return -1
             
     
             
@@ -560,9 +560,9 @@ Better still, we can combine ``find`` and ``find2`` using an
         
         def find(haystack, needle, start=0):
             for index,letter in enumerate(haystack[start:])
-		if letter == needle:
-			return index
-	    return -1
+                if letter == needle:
+                    return index
+            return -1
             
 
 When a function has an optional parameter, the caller `may` provide a 
@@ -582,9 +582,9 @@ position, up to but not including the end position:
         
         def find(haystack, needle, start=0,end=-1):
             for index,letter in enumerate(haystack[start:end])
-		if letter == needle:
-			return index
-	    return -1
+                if letter == needle:
+                    return index
+            return -1
             
 The semantics of ``start`` and ``end`` in this function are precisely the same as they are in
 the ``range`` function.
@@ -751,13 +751,13 @@ The numbers in the place holders are indexes that determine which argument
 gets substituted --- make sure you understand line 6 above! 
 
 But there's more!  Each of the replacement fields can also contain a **format specification** ---
-it is always introduced by the ``:`` symbol  (Line 11 above uses one.)  
+it is always introduced by the ``:`` symbol  (Line 13 above uses one.)  
 This modifies how the substitutions are made into the template, and can control things like:
 
 * whether the field is aligned to the left ``<``, center ``^``, or right ``>``
 * the width allocated to the field within the result string (a number like ``10``)
 * the type of conversion (we'll initially only force conversion to float, ``f``, as we did in
-  line 11 of the code above, or perhaps we'll ask integer numbers to be converted to hexadecimal using ``x``)
+  line 13 of the code above, or perhaps we'll ask integer numbers to be converted to hexadecimal using ``x``)
 * if the type conversion is a float, you can also specify how many decimal places are wanted 
   (typically, ``.2f`` is useful for working with currencies to two decimal places.)
 
@@ -1665,8 +1665,8 @@ looks even better now! The version above is not the right way to do things!)
         
         horsemen = ["war", "famine", "pestilence", "death"]
         
-	for horseman in horsemen:
-		print horseman
+        for horseman in horsemen:
+            print horseman
 
 Although a list can contain another list, the nested list still counts as a
 single element in its parent list. The length of this list is 4:
@@ -1710,7 +1710,7 @@ in the section :ref:`nested_data`:
                 
         # Count how many students are taking CompSci
         counter = 0
-        for (name, subjects) in students:
+        for name, subjects in students:
             if "CompSci" in subjects:            
                    counter += 1
                    
