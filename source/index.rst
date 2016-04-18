@@ -28,6 +28,7 @@ illustrated by Dario Mitchell
 * `Appendix E <PvL_E.html>`__ *Exceptions*
 * `Appendix F <PvL_F.html>`__ *Fitting and Scientific Data Handling*
 * `Appendix G <PvL_G.html>`__ *PyGame*
+* `Appendix H <PvL_H.html>`__ *Plotting with matplotlib*
 * `GNU Free Document License <fdl-1.3.html>`__ 
 
 .. toctree::
