@@ -2249,10 +2249,10 @@ to return a list of all prime numbers less than n:
     .. sourcecode:: python3
        :linenos:
 
-       def primes_lessthan(max):
-           """ Return a list of all prime numbers less than max. """
+       def primes_lessthan(n):
+           """ Return a list of all prime numbers less than n. """
            result = []
-           for i in range(2, max):
+           for i in range(2, n):
                if is_prime(i):
                   result.append(i)
            return result
@@ -2333,11 +2333,11 @@ computation short-circuits a search and returns early, as in this case:
     .. sourcecode:: python3
         :linenos:
 
-        def f(max):
+        def f(n):
             """ Find the first positive integer between 101 and less 
                 than n that is divisible by 21 
             """
-            for i in range(101, max):
+            for i in range(101, n):
                if (i % 21 == 0):
                    return i
                     
