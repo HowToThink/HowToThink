@@ -77,7 +77,7 @@ All clauses but the ``try`` can be omitted.
 The interpretor executes the block under the ``try`` statement, and monitors
 for exceptions. If one occurs, the interpretor moves to the ``except``
 statement; it executes the ``expect`` block if the exception raised match the
-exception requested in the ``except`` statement. If no exceptions occur, the
+exception requested in the ``except`` statement. If no exception occurs, the
 interpretor skips the block under the ``except`` clause. A ``else`` block is
 executed after the ``try`` one, if no exception occurred. A ``finally`` block
 is executed in any case. With all the statements, a ``try`` clause looks like:
@@ -118,7 +118,7 @@ exceptions in the same ``try`` clause:
         except PermissionError:
             print('Your are not allowed to read this file.')
 
-It is also possible not to specify an particular exception in the ``except``
+It is also possible not to specify a particular exception in the ``except``
 statement. In thy case, any exception will be handled. Such bare ``except``
 statement should be avoided, though, as they can easily mask bugs.
 
