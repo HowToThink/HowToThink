@@ -263,7 +263,7 @@ Multiple figures
 With this groundwork out of the way, we can move on to some more advanced matplotlib use. It is also possible to use it in an object-oriented manner, which allows for more separation between several plots and figures.
 Let's say we have two sets of data we want to plot next to eachother, rather than in the same figure. Matplotlib has several layers of organisation: first, there's an ``Figure`` object, which basically is the window you plot is drawn in. On top of that, there are ``Axes`` objects, which are your separate graphs. It is perfectly possible to have multiple (or no) Axes in one Figure. We'll explain the ``add_subplot`` method a bit later. For now, it just creates an Axis instance.
 
-    .. sourcecode:: python
+    .. sourcecode:: python3
         :linenos:
 
         import matplotlib.pyplot as plt
@@ -288,7 +288,7 @@ This example also neatly highlights one of Matplotlib's shortcomings: the API is
 
 Now, we want to make multiple plots next to each other. We do that by calling ``plot`` on two different axes:
 
-    .. sourcecode:: python
+    .. sourcecode:: python3
         :linenos:
  
         x_data1 = [0.1, 0.2, 0.3, 0.4]
