@@ -45,9 +45,9 @@ Let's begin with a simple program that writes three lines of text into a file:
         :linenos:
         
         with  open("test.txt", "w") as myfile:
-           myfile.write("My first file written from Python\n")
-           myfile.write("---------------------------------\n")
-           myfile.write("Hello, world!\n")
+            myfile.write("My first file written from Python\n")
+            myfile.write("---------------------------------\n")
+            myfile.write("Hello, world!\n")
 
 Opening a file creates what we call a file **handle**. In this example, the variable ``myfile``
 refers to the new handle object.  Our program calls methods on the handle, and this makes
@@ -93,13 +93,13 @@ the lines in the file, one at a time. This time, the mode argument is ``"r"`` fo
         :linenos:
             
         with open("test.txt", "r") as mynewhandle: 
-          while True:                            # Keep reading forever
-            theline = mynewhandle.readline()   # Try to read next line
-            if len(theline) == 0:              # If there are no more lines 
-                break                          #     leave the loop 
+            while True:                            # Keep reading forever
+                theline = mynewhandle.readline()   # Try to read next line
+                if len(theline) == 0:              # If there are no more lines 
+                    break                          # leave the loop 
              
-            # Now process the line we've just read 
-            print(theline, end="")
+                # Now process the line we've just read 
+                print(theline, end="")
             
 This is a handy pattern for our toolbox. In bigger programs, we'd
 squeeze more extensive logic into the body of the loop at line 8 ---
@@ -157,13 +157,13 @@ back to another file:
         :linenos:
               
         with open("friends.txt", "r") as f:
-          xs = f.readlines() 
+            xs = f.readlines() 
         
         xs.sort()
         
         with  open("sortedfriends.txt", "w") as g:
-          for v in xs:
-            g.write(v)
+            for v in xs:
+                g.write(v)
         
 The ``readlines`` method in line 2 reads all the lines and
 returns a list of the strings.  
@@ -190,7 +190,7 @@ file:
         :linenos:
               
         with open("somefile.txt") as f:
-           content = f.read() 
+            content = f.read() 
         words = content.split()    
         print("There are {0} words in the file.".format(len(words)))
         
@@ -229,9 +229,9 @@ omitting any lines that begin with ``#``:
             while True:
                 text = infile.readline()
                 if len(text) == 0: 
-                   break
+                    break
                 if text[0] == "#":
-                   continue
+                    continue
                    
                 # Put any more processing logic here
                 outfile.write(text)
