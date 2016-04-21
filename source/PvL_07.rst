@@ -23,7 +23,7 @@ data available the next time the computer is turned on and the program
 is started, it has to be written to a **non-volatile** storage medium,
 such a hard drive, usb drive, or CD-RW.
 
-Data on non-volatile storage media is stored in named locations on the media
+Data on non-volatile storage media is stored in named locations
 called **files**. By reading and writing files, programs can save information
 between program runs.
 
@@ -44,7 +44,7 @@ Let's begin with a simple program that writes three lines of text into a file:
     .. sourcecode:: python3
         :linenos:
         
-        with  open("test.txt", "w") as myfile:
+        with open("test.txt", "w") as myfile:
             myfile.write("My first file written from Python\n")
             myfile.write("---------------------------------\n")
             myfile.write("Hello, world!\n")
@@ -65,8 +65,7 @@ To put data in the file we invoke the ``write`` method on the handle, shown
 in lines 2, 3 and 4 above.  In bigger programs, lines 2--4 will usually be
 replaced by a loop that writes many more lines into the file.
 
-We don't need to close the file afterwards, because we used the "with" keyword on line 1. 
-This ensures that ``myfile`` is always closed, no matter what happens (power outages excluded). 
+The file is closed after line 4, at the end of the ``with`` block. A ``with`` block make sure that the file get close even if an error occurs (power outages excluded). 
 
 
     .. admonition:: A handle is somewhat like a TV remote control
@@ -92,61 +91,35 @@ the lines in the file, one at a time. This time, the mode argument is ``"r"`` fo
     .. sourcecode:: python3
         :linenos:
             
-        with open("test.txt", "r") as mynewhandle: 
-            while True:                            # Keep reading forever
-                theline = mynewhandle.readline()   # Try to read next line
-                if len(theline) == 0:              # If there are no more lines 
-                    break                          # leave the loop 
-             
-                # Now process the line we've just read 
-                print(theline, end="")
-            
+        with open("test.txt", "r") as my_new_handle: 
+            for the_line in my_new_handle: 
+                # Do something with the line we just read.
+                # Here we just print it.
+                print(the_line, end="")
+
 This is a handy pattern for our toolbox. In bigger programs, we'd
-squeeze more extensive logic into the body of the loop at line 8 ---
+squeeze more extensive logic into the body of the loop at line 5 ---
 for example, if each line of the file contained the name and email address
 of one of our friends, perhaps we'd split the line into some pieces and 
-call a function to send the friend a party invitation. 
+call a function to send the friend a party invitation.
 
-On line 8 we suppress the newline character that ``print``
-usually appends to our strings.  Why?  This is because the string already
-has its own newline:  the ``readline`` method in line 3 returns everything
-up to *and including* the newline character.  This also explains the
-end-of-file detection logic: when there are no more lines to be
-read from the file, ``readline`` returns an empty string --- one that does not
-even have a newline at the end, hence its length is 0.
+On line 5 we suppress the newline character that ``print``
+usually appends to our strings with ``end=""``.  Why?  This is because the string already
+has its own newline:  the ``for`` statement in line 2 reads everything
+up to *and including* the newline character.
 
-    .. admonition::  Fail first ...
-
-        In our sample case here, we have three lines in the file, yet
-        we enter the loop *four* times.  In Python, you only learn that
-        the file has no more lines by failure to read another line.  
-        In some other programming languages 
-        (e.g. Pascal), things are different: there you read three lines,
-        but you have what is called *look ahead* --- after reading the third 
-        line you already know that there are no more lines in the file.  
-        You're not even allowed to try to read the fourth line. 
-        
-        So the templates for working line-at-a-time in Pascal and Python are
-        subtly different!   
-
-        When you transfer your Python skills to your next computer language,
-        be sure to ask how you'll know when the file has ended: is the style
-        in the language "try, and after you fail you'll know", or is
-        it "look ahead"?
- 
-     
 If we try to open a file that doesn't exist, we get an error:
 
     .. sourcecode:: python3
         
         >>> mynewhandle = open("wharrah.txt", "r")
-        IOError: [Errno 2] No such file or directory: "wharrah.txt"
+        FileNotFoundError: [Errno 2] No such file or directory: "wharrah.txt"
 
 Turning a file into a list of lines
 -----------------------------------
 
 It is often useful to fetch data from
-a disk file and turn it into a list of lines.  Suppose we have a
+a disk file and turn it into a list of lines. Suppose we have a
 file containing our friends and their email addresses, one per line
 in the file.  But we'd like the lines sorted into
 alphabetical order.  A good plan is to read everything into a
@@ -156,14 +129,14 @@ back to another file:
     .. sourcecode:: python3
         :linenos:
               
-        with open("friends.txt", "r") as f:
-            xs = f.readlines() 
+        with open("friends.txt", "r") as input_file:
+            all_lines = input_file.readlines() 
         
-        xs.sort()
+        all_lines.sort()
         
-        with  open("sortedfriends.txt", "w") as g:
-            for v in xs:
-                g.write(v)
+        with open("sortedfriends.txt", "w") as output_file:
+            for line in all_lines:
+                outut_file.write(line)
         
 The ``readlines`` method in line 2 reads all the lines and
 returns a list of the strings.  
@@ -181,7 +154,7 @@ contents of the file into a string, and then to use our string-processing
 skills to work with the contents.   
 
 We'd normally use this method of processing files if we were not
-interested in the line structure of the file.   For example, we've
+interested in the line structure of the file. For example, we've
 seen the ``split`` method on strings which can break a string into 
 words.  So here is how we might count the number of words in a
 file:
@@ -211,7 +184,7 @@ An example
 ----------
 
 Many useful line-processing programs will read a text file line-at-a-time and do some minor
-processing as they write the lines to an output file.  They might number the
+processing as they write the lines to an output file. They might number the
 lines in the output file, or insert extra blank lines after every 60 lines to
 make it convenient for printing on sheets of paper, or extract some specific
 columns only from each line in the source file, or only print lines that 
@@ -224,42 +197,13 @@ omitting any lines that begin with ``#``:
        :linenos:
         
         def filter(oldfile, newfile):
-            infile = open(oldfile, "r")
-            outfile = open(newfile, "w")
-            while True:
-                text = infile.readline()
-                if len(text) == 0: 
-                    break
-                if text[0] == "#":
-                    continue
-                   
-                # Put any more processing logic here
-                outfile.write(text)
-                
-            infile.close()
-            outfile.close()
+            with open(oldfile, "r") as infile, open(newfile, "w") as outfile:
+                for line in infile:
+                    # Put any processing logic here
+                    if line[0] != '#':
+                        outfile.write(line)
 
-In this case, we explicitly open and close the files, instead of using the with statement used above. 
-This is because we're working with two files, and this way, they code is much neater.
-
-The ``continue`` statement at line 9 skips over the remaining lines in
-the current iteration of the loop, but the loop will still iterate.  This
-style looks a bit contrived here, but it is often useful to say *"get the
-lines we're not concerned with out of the way early, so that we have
-cleaner more focused logic in the meaty part of the loop that might be
-written around line 11."* 
-
-Thus, if ``text`` is the empty string, the loop exits. If the first character
-of ``text`` is a hash mark, the flow of execution goes to the top of the loop, ready
-to start processing the next line. 
-Only if both conditions fail do we fall through to do the processing at line 11, in this 
-example, writing the line into the new file.
-
-Let's consider one more case: suppose our original file contained empty
-lines.  At line 6 above, would this program find the first empty line in the
-file, and terminate immediately?   No!  Recall that ``readline`` always 
-includes the newline character in the string it returns.  It is only when we 
-try to read *beyond* the end of the file that we get back the empty string of length 0.  
+On line 2, we open two files: the file to read, and the file to write. From line 3, we read the input file line by line. We write the line in the output file only if the condition on line 5 is true.
 
 .. index:: directory
 
@@ -278,7 +222,7 @@ If we want to open a file somewhere else, we have to specify the **path** to
 the file, which is the name of the directory (or folder) where the file is
 located:
 
-    .. sourcecode:: python3
+    .. sourcecode:: pycon
         
         >>> wordsfile = open("/usr/share/dict/words", "r")
         >>> wordlist = wordsfile.readlines()
@@ -330,22 +274,29 @@ We'll need to get a few things right before this works:
    (as some students are), this may require some more special handling to work around our proxy.  
    Use a local resource for the purpose of this demonstration! 
   
-Here is a slightly different example.  Rather than save the web resource to
-our local disk, we read it directly into a string, and return it:
+Here is a slightly different example using the *requests* module. This module is not part of the standard library distributed with python, however it is easier to use and significantly more potent than the *urllib* module distributed with python. Read *requests* documentation on `<http://docs.python-requests.org/>`_ to learn how to install and use the module. Here, rather than save the web resource to
+our local disk, we read it directly into a string, and we print that string:
 
-    .. sourcecode:: python3
-        :linenos:
-        
-        import requests
+.. sourcecode:: python3
+    :linenos:
+    
+    import requests
 
+    url = "http://xml.resource.org/public/rfc/txt/rfc793.txt"
+    response = requests.get(url)
+    print(response.text)
 
-        the_text = requests.get("http://xml.resource.org/public/rfc/txt/rfc793.txt")
-        print(the_text)
-        
-Opening the remote url returns what we call a **socket**.  This is a handle to 
-our end of the connection between 
-our program and the remote web server.  We can call read, write, and close methods on
-the socket object in much the same way as we can work with a file handle.
+Opening the remote URL returns the response from the server. That response contains several informations, and the *requests* module allows us to access them in various ways. On line 5, we get the downloaded document as a single string. We could also read it line by line as follows:
+
+.. sourcecode:: python3
+    :linenos:
+    
+    import requests
+
+    url = "http://xml.resource.org/public/rfc/txt/rfc793.txt"
+    response = requests.get(url)
+    for line in response:
+        print(line)
 
 
 Glossary
@@ -394,10 +345,6 @@ Glossary
         A file that contains printable characters organized into lines
         separated by newline characters.
         
-    socket
-        One end of a connection allowing one to read and write 
-        information to or from another computer.  
-
     volatile memory
         Memory which requires an electrical current to maintain state. The
         *main memory* or RAM of a computer is volatile.  Information stored in
