@@ -292,7 +292,7 @@ By now you must be thinking: so bigger is better after all! Just use the biggest
 Apart from the fact that there is no biggest int, there is a bigger problem.
 If you work with images, each pixel from that image is stored as an RGB tuple: the intensity in red, green and blue.
 Each of these is a ``uint8`` value for most standard formats such as .jpg and .png. For example, (0, 0, 0) will be black, and (255, 0, 0) is red.
-This means that when you load an image from your hard drive this dtype is selected for you, and if you are not aware of this, what will happen when you add an image to itself? (In other words, place to copies on top of each other)
+This means that when you load an image from your hard drive this dtype is selected for you, and if you are not aware of this, what will happen when you add an image to itself? (In other words, place two copies on top of each other)
 You might expect that everything will become more dense. Instead, you'll get noise because of the effect we just talked about.
 
 Changing dtype
