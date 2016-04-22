@@ -200,10 +200,15 @@ Sometimes you will want to compare a function to your measured data; for example
         x_data = list(range(10))
         y_data = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
 
+        # The following lines just prepare some data, and are not relevant
+        # to plotting
+
         x_func = list(range(50))
         x_func = list(map(lambda x: x/5, x_func))  # Divide all x values by 5,
                                                    # so it goes from 0 to 10.
         y_func = list(map(found_fit, x_func))
+
+        # From here the plotting starts
 
         plt.scatter(x_data, y_data, c='r', label='data')
         plt.plot(x_func, y_func, label='$f(x) = 0.388 x^2$')
