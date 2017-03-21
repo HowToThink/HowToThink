@@ -64,7 +64,7 @@ We are now ready to create our own user-defined class: the ``Point``.
 
 Consider the concept of a mathematical point. In two dimensions, a point is two
 numbers (coordinates) that are treated collectively as a single object. 
-Points are often written in parentheses with a comma
+Points are often written in between parentheses with a comma
 separating the coordinates. For example, ``(0, 0)`` represents the origin, and
 ``(x, y)`` represents the point ``x`` units to the right and ``y`` units up
 from the origin.
