@@ -5,14 +5,14 @@
     with Invariant Sections being Foreword, Preface, and Contributor List, no
     Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is
     included in the section entitled "GNU Free Documentation License".
- 
-|      
-    
+
+|
+
 Exceptions
 ==========
 
 
-.. index:: exception, handling an exception, exception; handling, try ... except 
+.. index:: exception, handling an exception, exception; handling, try ... except
 
 Catching exceptions
 -------------------
@@ -23,8 +23,8 @@ describing the exception that occurred.
 
 For example, dividing by zero creates an exception:
 
-    .. sourcecode:: python3
-        
+    .. sourcecode:: pycon
+
         >>> print(55/0)
         Traceback (most recent call last):
           File "<interactive input>", line 1, in <module>
@@ -32,8 +32,8 @@ For example, dividing by zero creates an exception:
 
 So does accessing a non-existent list item:
 
-    .. sourcecode:: python3
-        
+    .. sourcecode:: pycon
+
         >>> a = []
         >>> print(a[5])
         Traceback (most recent call last):
@@ -42,10 +42,10 @@ So does accessing a non-existent list item:
 
 Or trying to make an item assignment on a tuple:
 
-    .. sourcecode:: python3
-        
+    .. sourcecode:: pycon
+
         >>> tup = ("a", "b", "d", "d")
-        >>> tup[2] = "c" 
+        >>> tup[2] = "c"
         Traceback (most recent call last):
           File "<interactive input>", line 1, in <module>
         TypeError: 'tuple' object does not support item assignment
@@ -55,7 +55,7 @@ error before the colon, and specifics about the error after the colon.
 
 Sometimes we want to execute an operation that might cause an exception, but we
 don't want the program to stop. We can **handle the exception** using the
-``try`` statement to "wrap" a region of code.  
+``try`` statement to "wrap" a region of code.
 
 For example, we might prompt the user for the name of a file and then try to
 open it. If the file doesn't exist, we don't want the program to crash; we want
@@ -63,77 +63,69 @@ to handle the exception:
 
     .. sourcecode:: python3
         :linenos:
-        
+
         filename = input("Enter a file name: ")
         try:
             f = open(filename, "r")
-        except:
+        except FileNotFoundError:
             print("There is no file named", filename)
 
-The ``try`` statement has three separate clauses, or parts, introduced
-by the keywords ``try`` ... ``except`` ... ``finally``.
-Either the ``except`` or the ``finally`` clauses can be omitted, so the above code considers
-the most common version of the ``try`` statement first.
-        
-The ``try`` statement executes and monitors the statements in the first block. If no
-exceptions occur, it skips the block under the ``except`` clause. If any exception occurs,
-it executes the statements in the ``except`` clause and then continues.
+The ``try`` statement has four separate clauses—or parts—introduced
+by the keywords ``try``, ``except``, ``else``, and ``finally``.
+All clauses but the ``try`` can be omitted.
 
-We could encapsulate this capability in a function: ``exists`` which takes a filename
-and returns true if the file exists, false if it doesn't:
+The interpretor executes the block under the ``try`` statement, and monitors
+for exceptions. If one occurs, the interpretor moves to the ``except``
+statement; it executes the ``expect`` block if the exception raised match the
+exception requested in the ``except`` statement. If no exception occurs, the
+interpretor skips the block under the ``except`` clause. A ``else`` block is
+executed after the ``try`` one, if no exception occurred. A ``finally`` block
+is executed in any case. With all the statements, a ``try`` clause looks like:
 
     .. sourcecode:: python3
         :linenos:
-        
-        def exists(filename):
-            try:
-                f = open(filename)
-                f.close()
-                return True 
-            except:
-                return False 
 
-    .. The try statement in this function was already introduced previously
-       (the same code), so I thought it would be appropriate to add an else
-       clause here.
-       
-    .. admonition:: A template to test if a file exists, without using exceptions
+        user_input = input('Type a number:')
+        try:
+            # Try do do something that could fail.
+            user_input_as_number = float(user_input)
+        except ValueError:
+            # This will be executed if a ``ValueError`` is raised.
+            print('You did not enter a number.')
+        else:
+            # This will be executed if not exception got raised in the
+            # ``try`` statement.
+            print('The square of your number is ', user_input_as_number**2)
+        finally:
+            # This will be executed whether or not an exception is raised.
+            print('Thank you')
 
-        The function we've just shown is not one we'd recommend. It opens
-        and closes the file, which is semantically different from asking "does
-        it exist?". How?  Firstly, it might update some timestamps on the file.
-        Secondly, it might tell us that there is no such file if some other
-        program already happens to have the file open, or if our permission
-        settings don't allow us to open the file.
+When using a ``try`` clause, you should have as little as possible in the
+``try`` block. If too many things happen in that block, you risk
+handling an unexpected exception.
 
-        Python provides a module called ``os.path`` within the ``os`` module. It
-        provides a number of useful functions to work with paths, files and directories,
-        so you should check out the help.  
-        
-            .. sourcecode:: python3
-                :linenos:
-            
-                import os
-                
-                # This is the preferred way to check if a file exists.
-                if os.path.isfile("c:/temp/testdata.txt"):
-                   ...
-           
-   
-            
-We can use multiple ``except`` clauses to handle different kinds of
-exceptions (see the
-`Errors and Exceptions <http://docs.python.org/py3k/tutorial/errors.html>`__
-lesson from Python creator Guido van Rossum's
-`Python Tutorial <http://docs.python.org/py3k/tutorial/index.html>`__
-for a more complete discussion of exceptions).  So the program could do
-one thing if the file does not exist, but do something else if the file
-was in use by another program.
+If the ``try`` block can fail if various way, you can handle different
+exceptions in the same ``try`` clause:
+
+    .. sourcecode:: python3
+        :lineos:
+
+        try:
+            with open(filename) as infile:
+                content = infile.read()
+        except FileNotFoundError:
+            print('The file does not exist.')
+        except PermissionError:
+            print('Your are not allowed to read this file.')
+
+It is also possible not to specify a particular exception in the ``except``
+statement. In this case, any exception will be handled. Such bare ``except``
+statement should be avoided, though, as they can easily mask bugs.
 
 Raising our own exceptions
 --------------------------
 
-Can our program deliberately cause its own exceptions?  
+Can our program deliberately cause its own exceptions?
 If our program detects an error condition, we can **raise** an
 exception. Here is an example that gets input from the user and checks that the
 number is non-negative:
@@ -173,7 +165,7 @@ If the function that called ``get_age`` (or its caller, or their caller, ...)
 handles the error, then the program can
 carry on running; otherwise, Python prints the traceback and exits:
 
-    .. sourcecode:: python3
+    .. sourcecode:: pycon
         
         >>> get_age()
         Please enter your age: 42
@@ -302,6 +294,4 @@ Exercises
    integer and then checks the input to confirm that it meets the requirements. 
    It should be able to handle inputs that cannot be converted to ``int``, as well
    as negative ``int``\s, and edge cases (e.g. when the user closes the dialog, or
-   does not enter anything at all.)   
-   
-
+   does not enter anything at all.)
