@@ -101,8 +101,8 @@ is executed in any case. With all the statements, a ``try`` clause looks like:
             print('Thank you')
 
 When using a ``try`` clause, you should have as little as possible in the
-``try`` block. If too many things happen in that block, you take the risk
-handle an unexpected exception.
+``try`` block. If too many things happen in that block, you risk
+handling an unexpected exception.
 
 If the ``try`` block can fail if various way, you can handle different
 exceptions in the same ``try`` clause:
@@ -119,7 +119,7 @@ exceptions in the same ``try`` clause:
             print('Your are not allowed to read this file.')
 
 It is also possible not to specify a particular exception in the ``except``
-statement. In thy case, any exception will be handled. Such bare ``except``
+statement. In this case, any exception will be handled. Such bare ``except``
 statement should be avoided, though, as they can easily mask bugs.
 
 Raising our own exceptions
