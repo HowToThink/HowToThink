@@ -73,7 +73,7 @@ pairs as needed:
     .. sourcecode:: python3
 
         >>> plt.plot([0.1, 0.2, 0.3, 0.4], [1, 2, 3, 4],
-                        [0.1, 0.2, 0.3, 0.4], [1, 4, 9, 16])
+                     [0.1, 0.2, 0.3, 0.4], [1, 4, 9, 16])
 
     .. image:: illustrations/mpl_basic3.png
        :width: 300pt
@@ -102,6 +102,7 @@ Adding information to the plot axes is straightforward to do:
 Also, adding an legend is rather simple:
 
     .. sourcecode:: python3
+
         >>> plt.plot([0.1, 0.2, 0.3, 0.4], [1, 2, 3, 4], label='first plot')
         >>> plt.plot([0.1, 0.2, 0.3, 0.4], [1, 4, 9, 16], label='second plot')
         >>> plt.legend()
