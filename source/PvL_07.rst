@@ -200,7 +200,7 @@ omitting any lines that begin with ``#``:
             with open(oldfile, "r") as infile, open(newfile, "w") as outfile:
                 for line in infile:
                     # Put any processing logic here
-                    if line[0] != '#':
+                    if not line.startswith('#'):
                         outfile.write(line)
 
 On line 2, we open two files: the file to read, and the file to write. From line 3, we read the input file line by line. We write the line in the output file only if the condition on line 5 is true.
@@ -286,7 +286,7 @@ our local disk, we read it directly into a string, and we print that string:
     response = requests.get(url)
     print(response.text)
 
-Opening the remote URL returns the response from the server. That response contains several informations, and the *requests* module allows us to access them in various ways. On line 5, we get the downloaded document as a single string. We could also read it line by line as follows:
+Opening the remote URL returns the response from the server. That response contains several types of information, and the *requests* module allows us to access them in various ways. On line 5, we get the downloaded document as a single string. We could also read it line by line as follows:
 
 .. sourcecode:: python3
     :linenos:
