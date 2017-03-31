@@ -22,7 +22,7 @@ illustrated by Dario Mitchell
 * `Chapter 6 <PvL_06.html>`__ *Numpy*
 * `Chapter 7 <PvL_07.html>`__ *File I/O*
 * `Appendix A <PvL_A.html>`__ *Writing Your Own Modules*
-* `Appendix B <PvL_B.html>`__ *Datatypes*
+* `Appendix B <PvL_B.html>`__ *More datatypes*
 * `Appendix C <PvL_C.html>`__ *Recursion*
 * `Appendix D <PvL_D.html>`__ *Object Oriented Programming*
 * `Appendix E <PvL_E.html>`__ *Exceptions*
