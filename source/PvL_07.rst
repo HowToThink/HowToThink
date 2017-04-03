@@ -274,7 +274,7 @@ We'll need to get a few things right before this works:
    (as some students are), this may require some more special handling to work around our proxy.  
    Use a local resource for the purpose of this demonstration! 
   
-Here is a slightly different example using the *requests* module. This module is not part of the standard library distributed with python, however it is easier to use and significantly more potent than the *urllib* module distributed with python. Read *requests* documentation on `<http://docs.python-requests.org/>`_ to learn how to install and use the module. Here, rather than save the web resource to
+Here is a slightly different example using the *requests* module. This module is not part of the standard library distributed with python, however it is easier to use and significantly more potent than the *urllib* module distributed with python. Read *requests* documentation on `<http://docs.python-requests.org>`_ to learn how to install and use the module. Here, rather than save the web resource to
 our local disk, we read it directly into a string, and we print that string:
 
 .. sourcecode:: python3
