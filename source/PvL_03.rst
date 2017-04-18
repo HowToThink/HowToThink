@@ -1172,7 +1172,7 @@ We saw this example before:
 Running through all the items in a list is called **traversing** the list,
 or **traversal**.      
 
-Let us write a function now to sum up all the elements in a list of numbers.
+Let us write some code now to sum up all the elements in a list of numbers.
 Do this by hand first, and try to isolate exactly what steps you take.  You'll
 find you need to keep some "running total" of the sum so far, either on a piece 
 of paper, in your head, or in your calculator. Remembering things from one step to the next is
@@ -1184,12 +1184,11 @@ to update the running total by adding the next number to it.
     .. sourcecode::  python
         :linenos:
 
-        def mysum(numbers):
-            """ Sum all the numbers in the list numbers, and return the total. """
-            running_total = 0
-            for number in numbers:
-                running_total = running_total + number
-            return running_total
+        numbers = [5, 6, 32, 21, 9]
+        running_total = 0
+        for number in numbers:
+            running_total = running_total + number
+        print(running_total)
 
         
 .. index:: while statement, while loop, iteration, loop, loop body,
