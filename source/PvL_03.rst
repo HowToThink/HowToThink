@@ -1166,8 +1166,8 @@ We saw this example before:
         :linenos:
 
         for friend in ["Joe", "Zoe", "Zuki", "Thandi", "Paris"]:
-            invitation = "Hi " + friend + ".  Please come to my party!"
-            print(invitation) 
+            invite = "Hi " + friend + ".  Please come to my party!"
+            print(invite)
         
 Running through all the items in a list is called **traversing** the list,
 or **traversal**.      
