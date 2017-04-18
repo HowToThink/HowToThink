@@ -234,8 +234,8 @@ quite know how to send email yet, so for the moment we'll just print a message f
     .. sourcecode:: python
         :linenos:
 
-        for friend in ["Joe","Zoe","Brad","Angelina","Zuki","Thandi","Paris"]:
-            invite = "Hi " + friend + ".  Please come to my party on Saturday!"
+        for friend in ["Joe", "Zoe", "Zuki", "Thandi", "Paris"]:
+            invite = "Hi " + friend + ".  Please come to my party!"
             print(invite)
         # more code can follow here ...            
       
@@ -245,13 +245,11 @@ When we run this, the output looks like this:
 
     .. sourcecode:: pycon
 
-        Hi Joe.  Please come to my party on Saturday!
-        Hi Zoe.  Please come to my party on Saturday!
-        Hi Brad.  Please come to my party on Saturday!
-        Hi Angelina.  Please come to my party on Saturday!
-        Hi Zuki.  Please come to my party on Saturday!
-        Hi Thandi.  Please come to my party on Saturday!
-        Hi Paris.  Please come to my party on Saturday! 
+        Hi Joe.  Please come to my party!
+        Hi Zoe.  Please come to my party!
+        Hi Zuki.  Please come to my party!
+        Hi Thandi.  Please come to my party!
+        Hi Paris.  Please come to my party! 
 
 * The variable ``friend`` in the ``for`` statement at line 1 is called the **loop variable**.  
   We could have chosen any other variable name instead, such as ``broccoli``: the computer doesn't care.
