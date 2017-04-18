@@ -1165,8 +1165,8 @@ We saw this example before:
     .. sourcecode:: python
         :linenos:
 
-        for friend in ["Joe", "Zoe", "Brad", "Angelina", "Zuki", "Thandi", "Paris"]:
-            invitation = "Hi " + friend + ".  Please come to my party on Saturday!"
+        for friend in ["Joe", "Zoe", "Zuki", "Thandi", "Paris"]:
+            invitation = "Hi " + friend + ".  Please come to my party!"
             print(invitation) 
         
 Running through all the items in a list is called **traversing** the list,
