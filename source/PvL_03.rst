@@ -1213,7 +1213,7 @@ Here is a fragment of code that demonstrates the use of the ``while`` statement:
     
         current_sum  = 0
         i = 1
-        while i < n:
+        while i <= n:
             current_sum += i
             i += 1
         print(current_sum)
@@ -1223,7 +1223,7 @@ You can almost read the ``while`` statement as if it were English. It means,
 while ``i`` is less than or equal to ``n``, continue executing the body of the loop. Within
 the body, each time, increment ``i``. When ``i`` passes ``n``, return your accumulated sum.
 In other words: while <CONDITION> is True, <STATEMENT> is executed.
-Of course, this example could be written more concisely as ``sum(range(n))`` because the function ``sum`` already exists. 
+Of course, this example could be written more concisely as ``sum(range(n + 1))`` because the function ``sum`` already exists. 
 
 More formally, here is precise flow of execution for a ``while`` statement:
 
