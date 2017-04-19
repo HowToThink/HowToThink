@@ -1213,7 +1213,7 @@ Here is a fragment of code that demonstrates the use of the ``while`` statement:
     
         current_sum  = 0
         i = 1
-        while i <= n:
+        while i < n:
             current_sum += i
             i += 1
         print(current_sum)
