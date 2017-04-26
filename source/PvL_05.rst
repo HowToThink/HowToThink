@@ -559,9 +559,9 @@ Better still, we can combine ``find`` and ``find2`` using an
         :linenos:
         
         def find(haystack, needle, start=0):
-            for index,letter in enumerate(haystack[start:])
+            for index,letter in enumerate(haystack[start:]):
                 if letter == needle:
-                    return index
+                    return index + start
             return -1
             
 
