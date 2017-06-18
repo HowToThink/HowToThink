@@ -2547,13 +2547,13 @@ Exercises
     memory or on your calculator has similar problems: memory is finite, and some digits may have to be discarded. So small
     inaccuracies creep in.   Try this script:
     
-   .. sourcecode:: python
-      :linenos:
-   
-        import math     
-        a = math.sqrt(2.0)
-        print(a, a*a)                
-        print(a*a == 2.0)
+    .. sourcecode:: python
+       :linenos:
+    
+         import math     
+         a = math.sqrt(2.0)
+         print(a, a*a)                
+         print(a*a == 2.0)
 
 #. Write a program that prints ``We like Python's turtles!`` 1000 times. 
 
@@ -2648,7 +2648,7 @@ in powerful ways to create many functions that are all slightly different.
 The first six questions are typical functions you should be able to write using only
 these building blocks.
    
-#. Write a program to count how many odd numbers are in a list.
+23. Write a program to count how many odd numbers are in a list.
 #. Sum up all the even numbers in a list.
 #. Sum up all the negative numbers in a list.
 #. Count how many words in a list have length 5.
