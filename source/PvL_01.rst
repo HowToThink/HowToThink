@@ -467,9 +467,7 @@ Glossary
         An interactive user interface to the Python interpreter. The user of a
         Python shell types commands at the prompt (>>>), and presses the return
         key to send these commands immediately to the interpreter for
-        processing.  The word *shell* comes from Unix.  In the PyScripter 
-        used in this RLE version of the book, the Interpreter Window is where
-        we'd do the immediate mode interaction.  
+        processing.  The word *shell* comes from Unix.
 
     runtime error
         An error that does not occur until the program has started to execute
