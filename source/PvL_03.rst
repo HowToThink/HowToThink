@@ -2458,7 +2458,7 @@ Exercises
 ---------
    
 #. Assume the days of the week are numbered 0,1,2,3,4,5,6 from Sunday to Saturday.
-   Write a function which is given the day number, and it returns the day name (a string).
+   Write a program that asks a day number, and prints the day name (a string).
  
 #. You go on a wonderful holiday (perhaps to jail, if you don't like happy exercises)
    leaving on day number 3 (a Wednesday).  You return home after 137 sleeps. 
