@@ -1223,7 +1223,7 @@ You can almost read the ``while`` statement as if it were English. It means,
 while ``i`` is less than or equal to ``n``, continue executing the body of the loop. Within
 the body, each time, increment ``i``. When ``i`` passes ``n``, return your accumulated sum.
 In other words: while <CONDITION> is True, <STATEMENT> is executed.
-Of course, this example could be written more concisely as ``sum(range(n + 1))`` because the function ``sum`` already exists. 
+Of course, this example could be written more concisely as ``sum(range(1, n + 1))`` because the function ``sum`` already exists. 
 
 More formally, here is precise flow of execution for a ``while`` statement:
 
@@ -1260,13 +1260,15 @@ terminates.  By comparison, here is an equivalent snippet that uses ``for`` inst
         n = 6
 
         current_sum  = 0
-        for i in range(n+1):
+        for i in range(1, n+1):
             current_sum += i
         print(current_sum)
 
 Notice the slightly tricky call to the ``range`` function --- we had to add one onto ``n``, 
 because ``range`` generates its list up to but excluding the value you give it.  
-It would be easy to make a programming mistake and overlook this.   
+It would be easy to make a programming mistake and overlook this. Also, just like in the
+``while`` example above, we instruct ``range`` to start at ``1`` because in this particular
+case we can skip the addition when ``i`` is zero. 
         
 So why have two kinds of loop if ``for`` looks easier?  This next example shows a case where
 we need the extra power that we get from the ``while`` loop.
