@@ -1212,7 +1212,7 @@ Here is a fragment of code that demonstrates the use of the ``while`` statement:
         n = 6
     
         current_sum  = 0
-        i = 1
+        i = 0
         while i <= n:
             current_sum += i
             i += 1
@@ -1245,8 +1245,8 @@ loop will repeat forever, which is called an **infinite loop**.
 In the case here, we can prove that the loop terminates because we
 know that the value of ``n`` is finite, and we can see that the value of ``i``
 increments each time through the loop, so eventually it will have to exceed ``n``. In
-other cases, it is not so easy, even impossible in some cases, 
-to tell if the loop will ever terminate.  
+other cases it is not so easy, maybe even impossible, to tell if the loop will ever
+terminate.  
 
 What you will notice here is that the ``while`` loop is more work for
 you --- the programmer --- than the equivalent ``for`` loop.  When using a ``while``
@@ -1266,7 +1266,7 @@ terminates.  By comparison, here is an equivalent snippet that uses ``for`` inst
 
 Notice the slightly tricky call to the ``range`` function --- we had to add one onto ``n``, 
 because ``range`` generates its list up to but excluding the value you give it.  
-It would be easy to make a programming mistake and overlook this.   
+It would be easy to make a programming mistake and overlook this. 
         
 So why have two kinds of loop if ``for`` looks easier?  This next example shows a case where
 we need the extra power that we get from the ``while`` loop.
