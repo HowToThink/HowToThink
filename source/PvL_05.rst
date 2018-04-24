@@ -540,7 +540,7 @@ starting position in the search string:
         def find2(haystack, needle, start):
             for index,letter in enumerate(haystack[start:])
                 if letter == needle:
-                    return index
+                    return index + start
             return -1
             
     
@@ -580,10 +580,10 @@ position, up to but not including the end position:
     .. sourcecode:: python3
         :linenos:
         
-        def find(haystack, needle, start=0,end=-1):
+        def find(haystack, needle, start=0, end=-1):
             for index,letter in enumerate(haystack[start:end])
                 if letter == needle:
-                    return index
+                    return index + start
             return -1
             
 The semantics of ``start`` and ``end`` in this function are precisely the same as they are in
