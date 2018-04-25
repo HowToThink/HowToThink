@@ -521,7 +521,7 @@ string, and is another example of the counter pattern introduced in
                     count += 1
             return(count)
 
-        test(count_a("banana") == 3)    
+        print(count_a("banana") == 3)    
 
 .. index:: optional parameter, default value, parameter; optional
 
@@ -545,7 +545,7 @@ starting position in the search string:
             
     
             
-        test(find2("banana", "a", 2) == 3)
+        print(find2("banana", "a", 2) == 3)
 
 The call ``find2("banana", "a", 2)`` now returns ``3``, the index of the first
 occurrence of "a" in "banana" starting the search at index 2. What does
@@ -2342,8 +2342,8 @@ computation short-circuits a search and returns early, as in this case:
                    return i
                     
                     
-        test(f(110) == 105)
-        test(f(1000000000) == 105)
+        print(f(110) == 105)
+        print(f(1000000000) == 105)
 
 In the second test, if range were to eagerly go about building a list 
 with all those elements, you would soon exhaust your computer's available
@@ -3167,10 +3167,10 @@ Exercises
            # Make these tests work...
            new_inventory = {}
            add_fruit(new_inventory, "strawberries", 10)
-           test("strawberries" in new_inventory)
-           test(new_inventory["strawberries"] == 10)
+           print("strawberries" in new_inventory)
+           print(new_inventory["strawberries"] == 10)
            add_fruit(new_inventory, "strawberries", 25)
-           test(new_inventory["strawberries"] == 35)      
+           print(new_inventory["strawberries"] == 35)      
 
 #. Write a program called ``alice_words.py`` that creates a text file named
    ``alice_words.txt`` containing an alphabetical listing of all the words, and the
