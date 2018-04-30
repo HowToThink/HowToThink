@@ -311,7 +311,7 @@ Advanced Usage
 
 Numpy has vast capabilities. It has way too many options to discuss here. More information can be found in
 
-#. the `Quickstart Numpy Tutorial <https://docs.scipy.org/doc/numpy-dev/user/quickstart.html>`_;
+#. the `Quickstart Numpy Tutorial <https://docs.scipy.org/doc/numpy/user/quickstart.html>`_;
 #. the `Numpy indexing documentation <http://docs.scipy.org/doc/numpy/reference/arrays.indexing.html>`_ (for advanced slicing and indexing);
 #. and the `Numpy broadcasting rules <http://scipy.github.io/old-wiki/pages/EricsBroadcastingDoc>`_ (for what happens when performing operations between arrays of different shapes and sizes).
 
