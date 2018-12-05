@@ -66,14 +66,14 @@ simply type the following into an editor like Spyder or PyScripter script:
         new_string = our_string.
     
 When you type the period to select one of the methods of ``our_string``, your editor might pop up a 
-selection window showing all the methods (there are around 70 of them --- thank goodness we'll only
+selection window — typically by pressing ``Tab`` — showing all the methods (there are around 70 of them --- thank goodness we'll only
 use a few of those!) that could be used on your string. 
 
     .. image::  illustrations/string_methods.png
  
 When you type the name of the method, some further help about its parameter and return
-type, and its docstring, will be displayed.  This is a good example of a tool --- PyScripter ---
-using the meta-information --- the docstrings --- provided by the module programmers. 
+type, and its docstring, may be displayed by your scripting environments (for instance, in a Jupyter
+notebook you can get this inofrmation by pressing ``Shift+Tab`` after a function name).
 
     .. image::  illustrations/swapcase.png
 
@@ -91,8 +91,8 @@ selects a single character substring from a string:
 
         
 The expression ``fruit[1]`` selects character number 1 from ``fruit``, and creates a new
-string containing just this one character. The variable ``m`` refers to the result. 
-When we display ``m``, we could get a surprise: 
+string containing just this one character. The variable ``letter`` refers to the result. 
+When we display ``letter``, we could get a surprise: 
 
     .. sourcecode:: pycon
 
