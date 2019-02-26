@@ -24,7 +24,7 @@ y     t     n
 
 Since the model predicts a parabola, we want to fit the data to this model to see how good it works. It might be a bit confusing, but :math:`h` is our x axis, and :math:`t` is the y axis.
 
-We use the `symfit` package to do our fitting. You can find the installation instructions `here
+We use the ``symfit`` package to do our fitting. You can find the installation instructions `here
 <http://symfit.readthedocs.org/en/latest/installation.html>`_.
 
 To fit the data to the model we run the following code:
@@ -32,17 +32,19 @@ To fit the data to the model we run the following code:
     .. sourcecode:: python3
 
         import numpy as np
-        from symfit.api import Variable, Parameter, Fit, sqrt
+        from symfit import Variable, Parameter, Fit, Model, sqrt
         
         t_data = np.array([1.4, 2.1, 2.6, 3.0, 3.3])
         h_data = np.array([10, 20, 30, 40, 50])
 
         # We now define our model
-        h = Variable()
-        g = Parameter()
-        t_model = sqrt(2 * h / g)
+        h = Variable('h')
+        t = Variable('t')
+        g = Parameter('g')
 
-        fit = Fit(t_model, h_data, t_data)
+        t_model = Model({t: sqrt(2 * h / g)})
+
+        fit = Fit(t_model, h=h_data, t=t_data)
         fit_result = fit.execute()
         print(fit_result)
 
@@ -52,14 +54,21 @@ Looking at these results, we see that :math:`g = 9.09 \pm 0.15` for this dataset
 
         # Make an array from 0 to 50 in 1000 steps
         h_range = np.linspace(0, 50, 1000)
-        fit_data = t_model(h=h_range, g=fit_result.params.g)
+        fit_data = t_model(h=h_range, g=fit_result.value(g))
+        t_fit = fit_data.t
 
+    .. note::
+
+        When calling a ``symfit.Model``, a ``namedtuple`` is returned with
+        all the components of the model evaluated. In this case there is only
+        one component, and can be accessed by requesting ``fit_data.t`` or
+        ``fit_data[0]``.
 
     .. image:: illustrations/fit_example.png
        :alt: Fitting curve for the gravity data.
 
 
-This gives the model evaluated at all the points in `h_range`. Making the actual plot is left to you as an exercise. We see that we can reach the value of g by calling `fit_result.params.g`, this returns :math:`9.09`.
+This gives the model evaluated at all the points in ``h_range``. Making the actual plot is left to you as an exercise. We see that we can request the fitted value of g by calling ``fit_result.value(g)``, which returns :math:`9.09`.
 
 Let's think for a second about the implications. The value of :math:`g` is :math:`g = 9.81` in the Netherlands. Based on our result, the textbooks should be rewritten because that value is extremely unlikely to be true given the small standard deviation in our data. It is at this point that we remember that our data point were not infinitely precise: we took many measurements and averaged them. This means there is an uncertainty in each of our data points. We will now account for this additional uncertainty and see what this does to our conclusion. To do this we first have to describe how the fitting actually works.
 
@@ -78,8 +87,8 @@ Here we have written the parameters as a vector :math:`\vec{p}`, to indicate tha
 
 Now if we minimize :math:`Q^2`, we get the best possible values for our parameters. The fitting algorithm actually just takes some values for the parameters, calculates :math:`Q^2`, then changes the values slightly by adding or subtracting a number, and checks if this new value is smaller than the old one. If this is true it keeps going in the same direction until the value of :math:`Q^2` starts to increase. That's when you know you've hit a minimum. Of cource the trick is to do this smartly, and a lot of algorithms have been developed in order to do this.
 
-Propagating Uncertanties
-------------------------
+Propagating Uncertainties
+-------------------------
 
 In the example above we the fitting process assumed that every measurement was equally reliable. But this is not true. By repeating a measurement and averaging the result, we can improve the accuracy. So in our example, we dropped our object from every height a couple of times and took the average. Therefore, we want to assign a weight depending on how accurate the average value for that height is. Statistically the weight :math:`w_i` to use is :math:`w_i = \frac{1}{\sigma_i^2}`, where :math:`\sigma_i` is the standard deviation for each point.
 
@@ -119,7 +128,7 @@ The values of :math:`\sigma_t` have been calculated by using the above formula. 
     .. sourcecode:: python3
 
         import numpy as np
-        from symfit.api import Variable, Parameter, Fit, sqrt
+        from symfit import Variable, Parameter, Fit, Model, sqrt
         
         t_data = np.array([1.4, 2.1, 2.6, 3.0, 3.3])
         h_data = np.array([10, 20, 30, 40, 50])
@@ -128,18 +137,20 @@ The values of :math:`\sigma_t` have been calculated by using the above formula. 
         sigma_t = sigma / np.sqrt(n)
 
         # We now define our model
-        h = Variable()
-        t = Variable()
-        g = Parameter()
-        t_model = {t: sqrt(2 * h / g)}
+        h = Variable('h')
+        t = Variable('t')
+        g = Parameter('g')
+        t_model = Model({t: sqrt(2 * h / g)})
 
         fit = Fit(t_model, h=h_data, t=t_data, sigma_t=sigma_t)
         fit_result = fit.execute()
         print(fit_result)
 
-    .. note:: Named Models
+    .. note::
 
-        Looking at the definition of `t_model`, we see it is now a dict. This has been done so we can tell `symfit` which of our variables are uncertain by the name of the variable, in this case `t` has an uncertainty `sigma_t`.
+        Looking at the initiation of ``Fit``, we see that uncertainties can be
+        provided to ``Variable``'s by prepending their name with ``sigma_``, in
+        this case ``sigma_t``.
 
 
 Including these uncertainties in the fit yields :math:`g = 9.10 \pm 0.16`. The accepted value of :math:`g = 9.81` is well outside the uncertainty in this data. Therefore the textbooks must be rewriten!
@@ -149,7 +160,8 @@ This example shows the importance of propagating your errors consistently. (And 
 More on symfit
 --------------
 
-There are a lot more features in `symfit` to help you on your quest to fitting the universe. You can find the tutorial `there
+There are a lot more features in ``symfit`` to help you on your quest to fitting
+the universe. You can find the tutorial `here
 <http://symfit.readthedocs.org/en/latest/tutorial.html>`_.
 
 It is recommended you read this as well before starting to fit your own data.
