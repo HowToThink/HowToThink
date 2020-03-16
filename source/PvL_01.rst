@@ -75,8 +75,23 @@ Working directly in the interpreter is convenient for testing short bits of code
 get immediate feedback. Think of it as scratch paper used to help you work out
 problems. Anything longer than a few lines should be put into a script.
 
+When you are writing a script you need something like a text editor. With this we mean a program on 
+your computer that changes text files, not something that also does layout like a word processor
+such as Microsoft Word or LibreOffice Writer. A few examples of text editors are 
+Notepad, Notepad++, vim, emacs and sublime.
 
-.. index:: program, algorithm
+For Python (and many other programming languages) there are programs that include both a text editor 
+and a way to interact with the interpreter. We call these development environments (sometimes 
+Integrated Development Environment or IDE). For Python these can include (among many others) Spyder, Thonny or IDLE.
+There are also development environments that run in your browser. One example of this is Jupyter Notebook.
+
+The choice of development environment is quite personal, but if you are following a course based on this book 
+the teacher will probably recommend one. That recommendation is handy to follow if you need help using the environment.
+
+The important thing to remember is that Python itself does not care in what editor you write your code. As long as 
+you write correct syntax (with the right tabs and spaces) Python can run your program. The editor is only there to help you.
+
+.. index:: program, algorithm, editor, IDE
 
 What is a program?
 ------------------
