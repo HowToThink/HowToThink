@@ -282,6 +282,10 @@ We'll need to get a few things right before this works:
  * If we are behind a proxy server that requires authentication, 
    (as some students are), this may require some more special handling to work around our proxy.  
    Use a local resource for the purpose of this demonstration! 
+ * We need to make sure that if we use any data from the web, that we check if the contents are still 
+   as we expect them to be. A website may change, or it may disappear. It can also be taken over by a new owner
+   who might change the contents completely. So before you use data from the internet, make your program check if 
+   the data is what you want it to be, before executing any code or showing it to any important users!
   
 Here is a slightly different example using the *requests* module. This module is not part of the standard library distributed with python, however it is easier to use and significantly more potent than the *urllib* module distributed with python. Read *requests* documentation on `<http://docs.python-requests.org>`_ to learn how to install and use the module. Here, rather than save the web resource to
 our local disk, we read it directly into a string, and we print that string:
