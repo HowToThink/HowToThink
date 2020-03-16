@@ -301,7 +301,7 @@ between directory and filenames.
 
 When working with files in directories it is a good idea to let Python deal with all 
 the slashes and escaping them. The ``os.path`` module does this for different operating systems. 
-Using ``os.path.join("directory","filename")`` will automatically return ``"directory/filename"`` 
+Using ``os.path.join("directory", "filename")`` will automatically return ``"directory/filename"`` 
 on Unix/Linux, and ``"directory\\filename"`` on Windows. This can not only be of great help 
 when moving code from one system to another, or when sharing with colleagues. It also means 
 that you do not have to take care of it yourself, and it might save you some issues with string handling.
