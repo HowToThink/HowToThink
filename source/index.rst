@@ -55,6 +55,7 @@ illustrated by Dario Mitchell
     PvL_E.rst
     PvL_F.rst
     PvL_G.rst
+    PvL_H.rst
 
 .. toctree::
     :maxdepth: 1

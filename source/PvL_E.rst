@@ -108,7 +108,7 @@ If the ``try`` block can fail if various way, you can handle different
 exceptions in the same ``try`` clause:
 
     .. sourcecode:: python3
-        :lineos:
+        :linenos:
 
         try:
             with open(filename) as infile:

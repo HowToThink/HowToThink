@@ -25,7 +25,7 @@ y     t     n
 Since the model predicts a parabola, we want to fit the data to this model to see how good it works. It might be a bit confusing, but :math:`h` is our x axis, and :math:`t` is the y axis.
 
 We use the ``symfit`` package to do our fitting. You can find the installation instructions `here
-<http://symfit.readthedocs.org/en/latest/installation.html>`_.
+<http://symfit.readthedocs.org/en/latest/installation.html>`__.
 
 To fit the data to the model we run the following code:
 
@@ -162,6 +162,6 @@ More on symfit
 
 There are a lot more features in ``symfit`` to help you on your quest to fitting
 the universe. You can find the tutorial `here
-<http://symfit.readthedocs.org/en/latest/tutorial.html>`_.
+<http://symfit.readthedocs.org/en/latest/tutorial.html>`__.
 
 It is recommended you read this as well before starting to fit your own data.
