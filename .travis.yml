@@ -1,0 +1,11 @@
+language: python
+dist: xenial
+cache:
+  - pip
+install:
+  - pip install --upgrade -r requirements.txt
+script:
+  - mkdir build_html
+  - sphinx-build -nW -b html source build_html
+  - mkdir build_pdf
+  - sphinx-build -nW -b pdf source build_pdf
