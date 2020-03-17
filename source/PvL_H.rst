@@ -140,7 +140,7 @@ that define the plotting style:
 
 The style strings, one per *x*--*y* pair, specify color and shape: 'rx' stands
 for red crosses, and 'b-.' stands for blue dash-point line. Check the
-`documentation <http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.plot>`_
+`documentation <http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.plot>`__
 of ``pyplot.plot`` for the list of colors and shapes.
 
 Finally, ``plt.plot`` can also, conveniently, take numpy arrays as its arguments.
@@ -152,7 +152,7 @@ More plots
 While ``plt.plot`` can satisfy basic plotting needs, ``matplotlib``
 provides many more plotting functions. Below we try out the ``plt.bar``
 function, for plotting bar charts. The full list of plotting functions can be found
-in the the ``matplotlib.pyplot`` `documentation <http://matplotlib.org/api/pyplot_api.html>`_.
+in the the ``matplotlib.pyplot`` `documentation <http://matplotlib.org/api/pyplot_api.html>`__.
 
 Bar charts can be plotted using ``plt.bar``, in a similar fashion to ``plt.plot``:
 
@@ -253,7 +253,7 @@ calling ``plt.savefig``:
 
     ..  note::
         When saving a plot, you'll want to choose a `vector format
-        <https://en.wikipedia.org/wiki/Vector_graphics>`_
+        <https://en.wikipedia.org/wiki/Vector_graphics>`__
         (either pdf, ps, eps, or svg). These are resolution-independent
         formats and will yield the best quality, even if printed at very
         large sizes. Saving as png should be avoided, and saving as jpg
