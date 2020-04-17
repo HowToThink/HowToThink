@@ -538,7 +538,7 @@ starting position in the search string:
         :linenos:
         
         def find2(haystack, needle, start):
-            for index,letter in enumerate(haystack[start:])
+            for index,letter in enumerate(haystack[start:]):
                 if letter == needle:
                     return index + start
             return -1
