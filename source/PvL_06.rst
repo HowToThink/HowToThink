@@ -78,7 +78,7 @@ This has nicely squared the array element-wise.
 Shape
 -----
 
-One of the most important properties an array is its shape. We have already seen 1 dimensional (1D) arrays, but arrays can have any dimensions you like. 
+One of the most important properties of an array is its shape. We have already seen 1 dimensional (1D) arrays, but arrays can have any dimensions you like. 
 Images for example, consist of a 2D array of pixels. But in color images every pixel is an RGB tuple: the intensity in red, green and blue. Every pixel itself is therefore an array as well.
 This makes a color image 3D overall.
 
